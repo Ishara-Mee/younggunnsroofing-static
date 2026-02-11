@@ -10946,49 +10946,34 @@
 .color-palate{
 	display:none;
 }
-.before-after-wrapper {
-  position: relative;
-  width: 100%;
-  max-width: 600px; /* adjust as needed */
-  overflow: hidden;
+.beer-slider-wrapper {
+    position: relative;
+    max-width: 600px;
+    margin: auto;
 }
 
-.before-after-wrapper img {
-  display: block;
-  width: 100%;
-  height: auto;
-  position: absolute;
-  top: 0;
-  left: 0;
+/* Buttons at bottom-left and bottom-right of the image */
+.before-after-buttons {
+    position: absolute;
+    bottom: 10px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 10px;
+    z-index: 10;
 }
 
-.before-image {
-  z-index: 1;
+.before-after-buttons button {
+    padding: 10px 20px;
+    background: rgba(0,0,0,0.6);
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    font-weight: bold;
+    transition: 0.3s;
 }
 
-.after-image {
-  z-index: 2;
-  width: 50%; /* start half */
-  overflow: hidden;
-}
-
-.slider-handle {
-  position: absolute;
-  z-index: 3;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 4px;
-  height: 100%;
-  background: #fff;
-  cursor: ew-resize;
-}
-
-.overlay-content {
-  position: absolute;
-  bottom: 10px;
-  left: 10px;
-  z-index: 4;
-  color: #fff;
-  text-shadow: 0 0 5px #000;
+.before-after-buttons button:hover {
+    background: rgba(0,0,0,0.8);
 }
