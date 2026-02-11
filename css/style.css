@@ -10946,34 +10946,98 @@
 .color-palate{
 	display:none;
 }
+.before-after-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 600px; /* adjust as needed */
+  overflow: hidden;
+}
+
+.before-after-wrapper img {
+  display: block;
+  width: 100%;
+  height: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.before-image {
+  z-index: 1;
+}
+
+.after-image {
+  z-index: 2;
+  width: 50%; /* start half */
+  overflow: hidden;
+}
+
+.slider-handle {
+  position: absolute;
+  z-index: 3;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4px;
+  height: 100%;
+  background: #fff;
+  cursor: ew-resize;
+}
+
+.overlay-content {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  z-index: 4;
+  color: #fff;
+  text-shadow: 0 0 5px #000;
+}
 .beer-slider-wrapper {
-    position: relative;
-    max-width: 600px;
-    margin: auto;
+  width: 100%;
+  position: relative;
+}
+.beer-slider img,
+.beer-reveal img {
+  display: block;
+  width: 100%;
+  pointer-events: none; /* allows buttons to be clickable */
 }
 
-/* Buttons at bottom-left and bottom-right of the image */
 .before-after-buttons {
-    position: absolute;
-    bottom: 10px;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    padding: 0 10px;
-    z-index: 10;
+  position: absolute;
+  bottom: 15px;
+  left: 15px;
+  right: 15px;
+  display: flex;
+  justify-content: space-between;
+  z-index: 10; /* ensures buttons are above images */
 }
-
 .before-after-buttons button {
-    padding: 10px 20px;
-    background: rgba(0,0,0,0.6);
-    color: #fff;
-    border: none;
-    cursor: pointer;
-    border-radius: 4px;
-    font-weight: bold;
-    transition: 0.3s;
+  padding: 8px 15px;
+  border: none;
+  background-color: rgba(0,0,0,0.6);
+  color: #fff;
+  cursor: pointer;
+  border-radius: 4px;
+  font-size: 14px;
+}
+.before-after-buttons button:hover {
+  background-color: rgba(0,0,0,0.8);
 }
 
+/* Hide buttons in cloned Owl slides */
+.owl-item.cloned .before-after-buttons {
+  display: none;
+}
+.before-after-buttons button {
+  padding: 8px 16px;
+  margin: 5px;
+  background: #000000;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
 .before-after-buttons button:hover {
-    background: rgba(0,0,0,0.8);
+  background: #000000;
 }

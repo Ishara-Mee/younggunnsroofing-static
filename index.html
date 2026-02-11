@@ -28,45 +28,39 @@
 <!-- Responsive -->
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-
+<style>
+	.beer-slider-wrapper {
+  width: 100%;
+  position: relative;
+}
+.before-after-buttons {
+  position: absolute;
+  bottom: 15px;
+  left: 15px;
+  right: 15px;
+  display: flex;
+  justify-content: space-between;
+}
+.before-after-buttons button {
+  padding: 8px 15px;
+  border: none;
+  background-color: rgba(0,0,0,0.6);
+  color: #fff;
+  cursor: pointer;
+  border-radius: 4px;
+  font-size: 14px;
+}
+.before-after-buttons button:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+</style>
 </head>
 
 <body>
 <div class="cursor"></div>
 <div class="page-wrapper">
  	
-    <!-- Preloader -->
-	<!--<div class="loader-wrap">
-		<div class="preloader">
-			<div class="preloader-close">x</div>
-			<div id="handle-preloader" class="handle-preloader">
-				<div class="animation-preloader">
-					<div class="spinner"></div>
-					<div class="txt-loading">
-						<span data-text-preloader="R" class="letters-loading">
-							R
-						</span>
-						<span data-text-preloader="O" class="letters-loading">
-							O
-						</span>
-						<span data-text-preloader="O" class="letters-loading">
-							O
-						</span>
-						<span data-text-preloader="N" class="letters-loading">
-							N
-						</span>
-						<span data-text-preloader="I" class="letters-loading">
-							I
-						</span>
-						<span data-text-preloader="X" class="letters-loading">
-							X
-						</span>
-					</div>
-				</div>  
-			</div>
-		</div>
-	</div>-->
-	<!-- Preloader End -->
+    
  	
  	<!-- Main Header / Header Style Five -->
     <header class="main-header header-style-seven">
@@ -378,6 +372,8 @@
 	<!-- End Main Slider Two -->
 	
 	<!-- Booking Section Three -->
+
+	<!-- Booking Section Three -->
 	<section class="booking-section-three">
 		<div class="color-layer" style="background-image: url(images/background/8.png)"></div>
 		<div class="auto-container">
@@ -389,7 +385,7 @@
 				<div class="form-box wow fadeInRight" data-wow-delay="150ms" data-wow-duration="1500ms">
 					<!-- Sec Title -->
 					<div class="sec-title">
-						<div class="title">Get A Free Quote...</div>
+						<div class="title">Book Appointment...</div>
 						<h2>Book Roofing <br> Inspection</h2>
 					</div>
 					
@@ -447,7 +443,7 @@
 			<!-- Sec Title -->
 			<div class="sec-title centered light">
 				<div class="title">...Our Services...</div>
-				<h2>We’re Prodviding Quality <br> Roofing Services</h2>
+				<h2>We Provide Superior <br> Roofing Services</h2>
 			</div>
 			<div class="row clearfix">
 				
@@ -457,12 +453,12 @@
 						<div class="content-box">
 							<div class="service-number">01</div>
 							<div class="icon flaticon-3d"></div>
-							<h4><a href="#0">Roof Renovation</a></h4>
+							<h4><a href="roof-renovation.html">Roof Renovation</a></h4>
 							<div class="text">Roofing whenan unknow printer took a gallery of type and scrambled it to make a type specim...</div>
-							<a class="view-detail" href="#0">View Details</a>
+							<a class="view-detail" href="roof-renovation.html">View Details</a>
 						</div>
 						<div class="image">
-							<a href="#0"><img src="images/resource/service-3.jpg" alt="" /></a>
+							<a href="roof-renovation.html"><img src="images/resource/service-3.jpg" alt="" /></a>
 						</div>
 					</div>
 				</div>
@@ -471,14 +467,14 @@
 				<div class="service-block-six col-lg-4 col-md-6 col-sm-12">
 					<div class="inner-box wow fadeInUp" data-wow-delay="0ms" data-wow-duration="1500ms">
 						<div class="image">
-							<a href="#0"><img src="images/resource/service-4.jpg" alt="" /></a>
+							<a href="roof-renovation.html"><img src="images/resource/service-4.jpg" alt="" /></a>
 						</div>
 						<div class="content-box">
 							<div class="service-number">02</div>
 							<div class="icon flaticon-3d"></div>
-							<h4><a href="#0">Roof Renovation</a></h4>
+							<h4><a href="roof-renovation.html">Roof Renovation</a></h4>
 							<div class="text">Roofing whenan unknow printer took a gallery of type and scrambled it to make a type specim...</div>
-							<a class="view-detail" href="#0">View Details</a>
+							<a class="view-detail" href="roof-renovation.html">View Details</a>
 						</div>
 					</div>
 				</div>
@@ -489,12 +485,12 @@
 						<div class="content-box">
 							<div class="service-number">03</div>
 							<div class="icon flaticon-3d"></div>
-							<h4><a href="#0">Roofing Repair</a></h4>
+							<h4><a href="roof-renovation.html">Roofing Repair</a></h4>
 							<div class="text">Roofing whenan unknow printer took a gallery of type and scrambled it to make a type specim...</div>
-							<a class="view-detail" href="#0">View Details</a>
+							<a class="view-detail" href="roof-renovation.html">View Details</a>
 						</div>
 						<div class="image">
-							<a href="#0"><img src="images/resource/service-5.jpg" alt="" /></a>
+							<a href="roof-renovation.html"><img src="images/resource/service-5.jpg" alt="" /></a>
 						</div>
 					</div>
 				</div>
@@ -526,10 +522,9 @@
 						<div class="inner-column">
 							<!-- Sec Title -->
 							<div class="sec-title">
-								<div class="title">Why Choose Us</div>
-								<h2>Trusted Experts at
-Young Ganns Roofing</h2>
-								<div class="text">At Young Ganns Roofing, we are committed to delivering top-quality roofing solutions for both residential and commercial projects. Our team of expert engineers ensures every installation is precise, durable, and tailored to your needs.</div>
+								<div class="title">Why Roonix?...</div>
+								<h2>The reason for people choose us?</h2>
+								<div class="text">With more than four decades of proven success in quality roofing services, Shelder Roofing and Retro-Fit group is a family-owned & operated business serving the greater San Fransisco area state. Our expert team has been dedicated to providing the best service and quality available in the area.</div>
 							</div>
 							<div class="row clearfix">
 								<div class="col-lg-6 col-md-6 col-sm-12">
@@ -562,536 +557,87 @@ Young Ganns Roofing</h2>
 		</div>
 	</section>
 	<!-- End Choose Section -->
-	
-	<!-- Project Section Five -->
-	<section class="project-section-five">
-		<div class="auto-container">
-			<div class="sec-title centered">
-				<div class="title">.. our Project ..</div>
-				<h2>Explore Our Latest <br> Projects</h2>
-			</div>
-			<div class="three-item-carousel owl-carousel owl-theme">
-				
-				<!-- Project Block Four -->
-				<div class="project-block-four">
-  <div class="inner-box">
-    <div class="image">
-      <div class="beer-slider-wrapper">
-        <div class="beer-slider" data-beer-label="">
-          <!-- AFTER IMAGE -->
-          <img src="images/gallery/21.jpg" alt="Roof After Repair" id="after-img">
-
-          <!-- BEFORE IMAGE -->
-          <div class="beer-reveal" id="before-reveal" data-beer-label="">
-            <img src="images/gallery/before.jpg" alt="Roof Before Repair">
-          </div>
+	<!-- Project Section -->
+<section class="project-section-five">
+    <div class="auto-container">
+        <div class="sec-title centered">
+            <div class="title">.. our Project ..</div>
+            <h2>Explore Our Latest <br> Projects</h2>
         </div>
 
-        <!-- Buttons at bottom-left and bottom-right of the image -->
-        <div class="before-after-buttons">
-          <button class="btn-before">Before</button>
-          <button class="btn-after">After</button>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+        <div class="three-item-carousel owl-carousel owl-theme">
 
+            <!-- First Project with Before/After -->
+            <div class="project-block-four">
+                <div class="inner-box">
+                    <div class="image">
+                        <div class="beer-slider-wrapper">
+                            <div class="beer-slider" data-beer-label="">
+                                <!-- AFTER IMAGE -->
+                                <img src="images/gallery/21.jpg" alt="Roof After Repair">
 
-				
-				<!-- Project Block Four -->
-				<div class="project-block-four">
-					<div class="inner-box">
-						<div class="image">
-							<img src="images/gallery/22.jpg" alt="" />
-							<div class="overlay-box">
-								<div class="content">
-									<div class="title">ROOF REPAIR</div>
-									<h4><a href="#0">Low Rise Building & Repair Roof</a></h4>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				
-				<!-- Project Block Four -->
-				<div class="project-block-four">
-					<div class="inner-box">
-						<div class="image">
-							<img src="images/gallery/23.jpg" alt="" />
-							<div class="overlay-box">
-								<div class="content">
-									<div class="title">ROOF REPAIR</div>
-									<h4><a href="#0">Low Rise Building & Repair Roof</a></h4>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				
-				<!-- Project Block Four -->
-				<div class="project-block-four">
-					<div class="inner-box">
-						<div class="image">
-							<img src="images/gallery/21.jpg" alt="" />
-							<div class="overlay-box">
-								<div class="content">
-									<div class="title">ROOF REPAIR</div>
-									<h4><a href="#0">Low Rise Building & Repair Roof</a></h4>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				
-				<!-- Project Block Four -->
-				<div class="project-block-four">
-					<div class="inner-box">
-						<div class="image">
-							<img src="images/gallery/22.jpg" alt="" />
-							<div class="overlay-box">
-								<div class="content">
-									<div class="title">ROOF REPAIR</div>
-									<h4><a href="30">Low Rise Building & Repair Roof</a></h4>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				
-				<!-- Project Block Four -->
-				<div class="project-block-four">
-					<div class="inner-box">
-						<div class="image">
-							<img src="images/gallery/23.jpg" alt="" />
-							<div class="overlay-box">
-								<div class="content">
-									<div class="title">ROOF REPAIR</div>
-									<h4><a href="#0">Low Rise Building & Repair Roof</a></h4>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				
-			</div>
-		</div>
-	</section>
-	<br><br><br>
-	<!-- End Project Section Five -->
-	
-	<!-- Clients Section / Style Two 
-	<section class="clients-section style-two">
-		<div class="auto-container">
-			<div class="carousel-outer">
-              
-                <ul class="sponsors-carousel owl-carousel owl-theme">
-                    <li><div class="image-box"><a href="#0"><img src="images/clients/1.png" alt=""></a></div></li>
-                    <li><div class="image-box"><a href="#0"><img src="images/clients/2.png" alt=""></a></div></li>
-                    <li><div class="image-box"><a href="#0"><img src="images/clients/3.png" alt=""></a></div></li>
-                    <li><div class="image-box"><a href="#0"><img src="images/clients/4.png" alt=""></a></div></li>
-                    <li><div class="image-box"><a href="#0"><img src="images/clients/5.png" alt=""></a></div></li>
-                    <li><div class="image-box"><a href="#0"><img src="images/clients/1.png" alt=""></a></div></li>
-					<li><div class="image-box"><a href="#0"><img src="images/clients/2.png" alt=""></a></div></li>
-                    <li><div class="image-box"><a href="#0"><img src="images/clients/3.png" alt=""></a></div></li>
-                </ul>
+                                <!-- BEFORE IMAGE -->
+                                <div class="beer-reveal" data-beer-label="">
+                                    <img src="images/gallery/before.jpg" alt="Roof Before Repair">
+                                </div>
+                            </div>
+
+                            <div class="before-after-buttons">
+                                <button class="btn-before">Before</button>
+                                <button class="btn-after">After</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-		</div>
-	</section>
-	 End Clients Section / Style Two -->
-	
-	<!-- Team Section Four 
-	<section class="team-section-four">
-		<div class="color-layer" style="background-image: url(images/background/17.png)"></div>
-		<div class="auto-container">
-			
-			<div class="sec-title light">
-				<div class="title">Our Team...</div>
-				<h2>Meet our Team</h2>
-			</div>
-			<div class="inner-container">
-				<div class="three-item-carousel owl-carousel owl-theme">
-					
-					
-					<div class="team-block-four">
-						<div class="inner-box">
-							<div class="image">
-								<a href="#0"><img src="images/resource/team-1.jpg" alt="" /></a>
-								<div class="overlay-box">
-									<ul class="social-list">
-										<li><a href="#0" class="fa fa-facebook"></a></li>
-										<li><a href="#0" class="fa fa-twitter"></a></li>
-										<li><a href="#0" class="fa fa-youtube-play"></a></li>
-										<li><a href="#0" class="fa fa-instagram"></a></li>
-									</ul>
-								</div>
-							</div>
-							<div class="lower-content">
-								<h5><a href="#0">Rasalina Willamson</a></h5>
-								<div class="designation">CEO & Founder</div>
-							</div>
-						</div>
-					</div>
-					
-					
-					<div class="team-block-four">
-						<div class="inner-box">
-							<div class="image">
-								<a href="#0"><img src="images/resource/team-2.jpg" alt="" /></a>
-								<div class="overlay-box">
-									<ul class="social-list">
-										<li><a href="#0" class="fa fa-facebook"></a></li>
-										<li><a href="#0" class="fa fa-twitter"></a></li>
-										<li><a href="#0" class="fa fa-youtube-play"></a></li>
-										<li><a href="#0" class="fa fa-instagram"></a></li>
-									</ul>
-								</div>
-							</div>
-							<div class="lower-content">
-								<h5><a href="#0">Christain Bala</a></h5>
-								<div class="designation">Roffing Specialist</div>
-							</div>
-						</div>
-					</div>
-					
-					
-					<div class="team-block-four">
-						<div class="inner-box">
-							<div class="image">
-								<a href="#0"><img src="images/resource/team-3.jpg" alt="" /></a>
-								<div class="overlay-box">
-									<ul class="social-list">
-										<li><a href="#0" class="fa fa-facebook"></a></li>
-										<li><a href="#0" class="fa fa-twitter"></a></li>
-										<li><a href="#0" class="fa fa-youtube-play"></a></li>
-										<li><a href="#0" class="fa fa-instagram"></a></li>
-									</ul>
-								</div>
-							</div>
-							<div class="lower-content">
-								<h5><a href="#0">Jane Smith</a></h5>
-								<div class="designation">Insurance & Repair Expert</div>
-							</div>
-						</div>
-					</div>
-					
-					
-					<div class="team-block-four">
-						<div class="inner-box">
-							<div class="image">
-								<a href="#0"><img src="images/resource/team-4.jpg" alt="" /></a>
-								<div class="overlay-box">
-									<ul class="social-list">
-										<li><a href="#0" class="fa fa-facebook"></a></li>
-										<li><a href="#0" class="fa fa-twitter"></a></li>
-										<li><a href="#0" class="fa fa-youtube-play"></a></li>
-										<li><a href="#0" class="fa fa-instagram"></a></li>
-									</ul>
-								</div>
-							</div>
-							<div class="lower-content">
-								<h5><a href="#0">Rasalina Willamson</a></h5>
-								<div class="designation">ROOFING WORKER</div>
-							</div>
-						</div>
-					</div>
-					
-				
-					<div class="team-block-four">
-						<div class="inner-box">
-							<div class="image">
-								<a href="#0"><img src="images/resource/team-1.jpg" alt="" /></a>
-								<div class="overlay-box">
-									<ul class="social-list">
-										<li><a href="#0" class="fa fa-facebook"></a></li>
-										<li><a href="#0" class="fa fa-twitter"></a></li>
-										<li><a href="#0" class="fa fa-youtube-play"></a></li>
-										<li><a href="#0" class="fa fa-instagram"></a></li>
-									</ul>
-								</div>
-							</div>
-							<div class="lower-content">
-								<h5><a href="#0">Rasalina Willamson</a></h5>
-								<div class="designation">ROOFING WORKER</div>
-							</div>
-						</div>
-					</div>
-					
-					
-					<div class="team-block-four">
-						<div class="inner-box">
-							<div class="image">
-								<a href="#0"><img src="images/resource/team-2.jpg" alt="" /></a>
-								<div class="overlay-box">
-									<ul class="social-list">
-										<li><a href="#0" class="fa fa-facebook"></a></li>
-										<li><a href="#0" class="fa fa-twitter"></a></li>
-										<li><a href="#0" class="fa fa-youtube-play"></a></li>
-										<li><a href="#0" class="fa fa-instagram"></a></li>
-									</ul>
-								</div>
-							</div>
-							<div class="lower-content">
-								<h5><a href="#0">Rasalina Willamson</a></h5>
-								<div class="designation">ROOFING WORKER</div>
-							</div>
-						</div>
-					</div>
-					
-					
-					<div class="team-block-four">
-						<div class="inner-box">
-							<div class="image">
-								<a href="#0"><img src="images/resource/team-3.jpg" alt="" /></a>
-								<div class="overlay-box">
-									<ul class="social-list">
-										<li><a href="#0" class="fa fa-facebook"></a></li>
-										<li><a href="#0" class="fa fa-twitter"></a></li>
-										<li><a href="#0" class="fa fa-youtube-play"></a></li>
-										<li><a href="#0" class="fa fa-instagram"></a></li>
-									</ul>
-								</div>
-							</div>
-							<div class="lower-content">
-								<h5><a href="#0">Rasalina Willamson</a></h5>
-								<div class="designation">ROOFING WORKER</div>
-							</div>
-						</div>
-					</div>
-					
-					
-					<div class="team-block-four">
-						<div class="inner-box">
-							<div class="image">
-								<a href="#0"><img src="images/resource/team-4.jpg" alt="" /></a>
-								<div class="overlay-box">
-									<ul class="social-list">
-										<li><a href="#0" class="fa fa-facebook"></a></li>
-										<li><a href="#0" class="fa fa-twitter"></a></li>
-										<li><a href="#0" class="fa fa-youtube-play"></a></li>
-										<li><a href="#0" class="fa fa-instagram"></a></li>
-									</ul>
-								</div>
-							</div>
-							<div class="lower-content">
-								<h5><a href="#0">Rasalina Willamson</a></h5>
-								<div class="designation">ROOFING WORKER</div>
-							</div>
-						</div>
-					</div>
-					
-				</div>
-			</div>
-		</div>
-		
-	</section>
-	End Team Section Four -->
-	
-	<!-- Testimonial Section Four
-	<section class="testimonial-section-four" style="background-image:url(images/background/map-2.png)">
-		<div class="auto-container">
-			
-			<div class="sec-title light centered">
-				<div class="title">Client Feedback</div>
-				<h2>What Customer Saying</h2>
-			</div>
-			
-			
-			<div class="single-item-carousel owl-carousel owl-theme">
-			
-				
-				<div class="testimonial-block-three">
-					<div class="inner-box">
-						<div class="text">Young Gunns Roofing did an excellent job on our roof. The team was professional, on time, and very detail-oriented. The quality of workmanship was outstanding, and the final result exceeded our expectations. Highly recommended!</div>
-						<div class="info-box">
-							<div class="author-image">
-								<i class="quote-icon flaticon-quote"></i>
-								<img src="images/resource/author-5.jpg" alt="" />
-							</div>
-							<span>Rasalina De Willmson (CEO@Orix)</span>
-						</div>
-					</div>
-				</div>
-				
-				
-				<div class="testimonial-block-three">
-					<div class="inner-box">
-						<div class="text">The Young Gunns Roofing team delivered high-quality work with great attention to detail. Our roof looks amazing, and the service was professional throughout the entire process.</div>
-						<div class="info-box">
-							<div class="author-image">
-								<i class="quote-icon flaticon-quote"></i>
-								<img src="images/resource/author-5.jpg" alt="" />
-							</div>
-							<span>Rasalina De Willmson (CEO@Orix)</span>
-						</div>
-					</div>
-				</div>
-				
-				
-				<div class="testimonial-block-three">
-					<div class="inner-box">
-						<div class="text">Excellent roofing service! Young Gunns Roofing was punctual, efficient, and used quality materials. We are very happy with the finished roof and would gladly recommend them.</div>
-						<div class="info-box">
-							<div class="author-image">
-								<i class="quote-icon flaticon-quote"></i>
-								<img src="images/resource/author-5.jpg" alt="" />
-							</div>
-							<span>Rasalina De Willmson (CEO@Orix)</span>
-						</div>
-					</div>
-				</div>
-				
-			</div>
-			
-			
-			<div class="left-authors">
-				<div class="author one"><img src="images/resource/author-6.png" alt="" /></div>
-				<div class="author two"><img src="images/resource/author-7.png" alt="" /></div>
-				<div class="author three"><img src="images/resource/author-8.png" alt="" /></div>
-			</div>
-			
-			<div class="right-authors">
-				<div class="author four"><img src="images/resource/author-9.png" alt="" /></div>
-				<div class="author five"><img src="images/resource/author-10.png" alt="" /></div>
-				<div class="author six"><img src="images/resource/author-11.png" alt="" /></div>
-			</div>
-			
-		</div>
-	</section>
-	 End Testimonial Section Four -->
-	
-	<!-- News Section Four
-	<section class="news-section-four">
-		<div class="auto-container">
-		
-			<div class="sec-title">
-				<div class="title">Article & blog...</div>
-				<h2>Read our Blog</h2>
-			</div>
-			<div class="inner-container">
-				<div class="news-carousel owl-carousel owl-theme">
-					
-					
-					<div class="news-block-four">
-						<div class="inner-box">
-							<div class="image">
-								<a href="#0"><img src="images/resource/news-9.jpg" alt="" /></a>
-							</div>
-							<div class="lower-content">
-								<div class="title">ROOF REPAIR</div>
-								<h4><a href="#0">Why Roofing Material Warrenties is Important?</a></h4>
-								<div class="author">
-									<span class="image">
-										<img src="images/resource/author-12.jpg" alt="" />
-									</span>
-									Rasalina Halim
-								</div>
-								<ul class="post-meta">
-									<li>356 <span class="flaticon-heart"></span></li>
-									<li>17.January.2026 <span class="flaticon-clock"></span></li>
-								</ul>
-							</div>
-						</div>
-					</div>
-					
-					
-					<div class="news-block-four">
-						<div class="inner-box">
-							<div class="image">
-								<a href="#0"><img src="images/resource/news-10.jpg" alt="" /></a>
-							</div>
-							<div class="lower-content">
-								<div class="title">ROOF REPAIR</div>
-								<h4><a href ="#0">Why you should join as a volunteer with us - 2026</a></h4>
-								<div class="author">
-									<span class="image">
-										<img src="images/resource/author-12.jpg" alt="" />
-									</span>
-									Rasalina Halim
-								</div>
-								<ul class="post-meta">
-									<li>356 <span class="flaticon-heart"></span></li>
-									<li>12.January.2026 <span class="flaticon-clock"></span></li>
-								</ul>
-							</div>
-						</div>
-					</div>
-					
-					
-					<div class="news-block-four">
-						<div class="inner-box">
-							<div class="image">
-								<a href="#0"><img src="images/resource/news-9.jpg" alt="" /></a>
-							</div>
-							<div class="lower-content">
-								<div class="title">ROOF REPAIR</div>
-								<h4><a href="#0">Why Roofing Material Warrenties is Important?</a></h4>
-								<div class="author">
-									<span class="image">
-										<img src="images/resource/author-12.jpg" alt="" />
-									</span>
-									Rasalina Halim
-								</div>
-								<ul class="post-meta">
-									<li>356 <span class="flaticon-heart"></span></li>
-									<li>22.January.2026 <span class="flaticon-clock"></span></li>
-								</ul>
-							</div>
-						</div>
-					</div>
-					
-				
-					<div class="news-block-four">
-						<div class="inner-box">
-							<div class="image">
-								<a href="#0"><img src="images/resource/news-10.jpg" alt="" /></a>
-							</div>
-							<div class="lower-content">
-								<div class="title">ROOF REPAIR</div>
-								<h4><a href="#0">Why you should join as a volunteer with us - 2023</a></h4>
-								<div class="author">
-									<span class="image">
-										<img src="images/resource/author-12.jpg" alt="" />
-									</span>
-									Rasalina Halim
-								</div>
-								<ul class="post-meta">
-									<li>356 <span class="flaticon-heart"></span></li>
-									<li>23.January.2026 <span class="flaticon-clock"></span></li>
-								</ul>
-							</div>
-						</div>
-					</div>
-					
-				</div>
-			</div>
-		</div>
-	</section>
-	 End News Section Four -->
-	
-	<!-- Newsletter Section 
-	<section class="newsletter-section" style="background-image:url(images/background/4.jpg)">
-		<div class="auto-container">
-			<div class="row clearfix">
-				<div class="column col-lg-6 col-md-12 col-sm-12">
-					<h3>Subscribe Our Newslatter</h3>
-				</div>
-				<div class="column col-lg-6 col-md-12 col-sm-12">
-				
-					<div class="email-box">
-						<form method="post" action="contact.html">
-							<div class="form-group">
-								<input type="email" name="search-field" value="" placeholder="Enter your mail" required>
-								<button type="submit" class="theme-btn submit-btn"><i class="flaticon-send"></i></button>
-							</div>
-						</form>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-	 End Newsletter Section -->
-	
+
+            <!-- Other Projects -->
+            <div class="project-block-four">
+                <div class="inner-box">
+                    <div class="image">
+                        <img src="images/gallery/22.jpg" alt="" />
+                        <div class="overlay-box">
+                            <div class="content">
+                                <div class="title">ROOF REPAIR</div>
+                                <h4><a href="#0">Low Rise Building & Repair Roof</a></h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-block-four">
+                <div class="inner-box">
+                    <div class="image">
+                        <img src="images/gallery/23.jpg" alt="" />
+                        <div class="overlay-box">
+                            <div class="content">
+                                <div class="title">ROOF REPAIR</div>
+                                <h4><a href="#0">Low Rise Building & Repair Roof</a></h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-block-four">
+                <div class="inner-box">
+                    <div class="image">
+                        <img src="images/gallery/21.jpg" alt="" />
+                        <div class="overlay-box">
+                            <div class="content">
+                                <div class="title">ROOF REPAIR</div>
+                                <h4><a href="#0">Low Rise Building & Repair Roof</a></h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+<br><br>
 	<!-- Main Footer -->
     <footer class="main-footer">
     	<div class="auto-container">
@@ -1222,31 +768,6 @@ Young Ganns Roofing</h2>
 	<!-- End Search Popup -->
 	
 </div>
-<!--End pagewrapper-->
-
-<!-- Color Palate -->
-<!--<div class="color-palate">
-    <div class="color-trigger">
-        <i class="fa fa-gear"></i>
-    </div>
-    <div class="color-palate-head">
-        <h6>Choose Layout</h6>
-    </div>
-	
-	<div class="various-color clearfix">
-        <div class="colors-list">
-            <span class="palate default-color active" data-theme-file="css/color-themes/default-color.css"></span>
-            <span class="palate green-color" data-theme-file="css/color-themes/green-color.css"></span>
-            <span class="palate olive-color" data-theme-file="css/color-themes/blue-color.css"></span>
-            <span class="palate orange-color" data-theme-file="css/color-themes/orange-color.css"></span>
-            <span class="palate purple-color" data-theme-file="css/color-themes/purple-color.css"></span>
-            <span class="palate teal-color" data-theme-file="css/color-themes/teal-color.css"></span>
-            <span class="palate brown-color" data-theme-file="css/color-themes/brown-color.css"></span>
-            <span class="palate yellow-color" data-theme-file="css/color-themes/yellow-color.css"></span>
-        </div>
-    </div>
-</div>-->
-<!-- End Color Palate -->
 
 <!-- scrollToTop start -->
 <div class="progress-wrap active-progress">
@@ -1256,9 +777,14 @@ Young Ganns Roofing</h2>
 </div>
 <!-- scrollToTop end -->
 
-<script src="js/jquery.js"></script>
+<!-- jQuery (only one copy) -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<!-- Popper & Bootstrap -->
 <script src="js/popper.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
+
+<!-- Plugins -->
 <script src="js/magnific-popup.min.js"></script>
 <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
 <script src="js/appear.js"></script>
@@ -1273,48 +799,63 @@ Young Ganns Roofing</h2>
 <script src="js/cursor-script.js"></script>
 <script src="js/nav-tool.js"></script>
 <script src="js/jquery-ui.js"></script>
-<script src="js/script.js"></script>
-<script src="js/color-settings.js"></script>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<!-- BeerSlider -->
 <script src="https://unpkg.com/beerslider/dist/BeerSlider.js"></script>
 
+<!-- Custom Scripts -->
+<script src="js/script.js"></script>
+<script src="js/color-settings.js"></script>
+
 <script>
-document.addEventListener("DOMContentLoaded", function () {
+$(document).ready(function(){
 
-  const sliderWrapper = document.querySelector('.beer-slider-wrapper');
-  const slider = sliderWrapper.querySelector('.beer-slider');
-  const beer = new BeerSlider(slider);
+    // Initialize Owl Carousel
+    $(".three-item-carousel").owlCarousel({
+        loop: true,
+        margin: 30,
+        nav: true,
+        dots: false,
+        autoplay: false, // stop auto sliding
+		   autoplayTimeout: 50000,
+        smartSpeed: 7000,
+        navText: [
+            '<i class="fas fa-chevron-left"></i>',
+            '<i class="fas fa-chevron-right"></i>'
+        ],
+        responsive: {
+            0: { items: 1 },
+            600: { items: 2 },
+            1000: { items: 3 }
+        }
+    });
 
-  const btnBefore = sliderWrapper.querySelector('.btn-before');
-  const btnAfter = sliderWrapper.querySelector('.btn-after');
+    // Initialize BeerSlider for each slider wrapper
+    document.querySelectorAll('.beer-slider-wrapper').forEach(wrapper => {
+        const slider = wrapper.querySelector('.beer-slider');
+        const reveal = slider.querySelector('.beer-reveal');
 
-  const reveal = slider.querySelector('.beer-reveal');
+        // Initialize BeerSlider without auto-start
+        new BeerSlider(slider, {
+            start: 50 // start in middle
+        });
 
-  // Smooth animation function
-  function animateReveal(targetWidth) {
-    let start = parseFloat(reveal.style.width) || 0;
-    let end = targetWidth;
-    let step = (end - start) / 20; // 20 frames
-    let i = 0;
-    const anim = setInterval(() => {
-      if(i >= 20) {
-        clearInterval(anim);
-        reveal.style.width = end + "%";
-        return;
-      }
-      start += step;
-      reveal.style.width = start + "%";
-      i++;
-    }, 15); // 15ms per frame
-  }
+        const btnBefore = wrapper.querySelector('.btn-before');
+        const btnAfter = wrapper.querySelector('.btn-after');
 
-  btnBefore.addEventListener('click', () => {
-    animateReveal(100); // show full before
-  });
+        // Add smooth CSS transition for slower animation
+        reveal.style.transition = 'width 0.8s ease'; // 0.8s for smooth slow transition
+        reveal.style.width = '50%'; // start at middle
 
-  btnAfter.addEventListener('click', () => {
-    animateReveal(0);   // show full after
-  });
+        // Button click handlers
+        btnBefore.addEventListener('click', () => {
+            reveal.style.width = '100%'; // show full before
+        });
+
+        btnAfter.addEventListener('click', () => {
+            reveal.style.width = '0%'; // show full after
+        });
+    });
 
 });
 </script>
