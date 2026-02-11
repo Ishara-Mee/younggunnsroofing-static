@@ -10946,3 +10946,49 @@
 .color-palate{
 	display:none;
 }
+.before-after-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 600px; /* adjust as needed */
+  overflow: hidden;
+}
+
+.before-after-wrapper img {
+  display: block;
+  width: 100%;
+  height: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.before-image {
+  z-index: 1;
+}
+
+.after-image {
+  z-index: 2;
+  width: 50%; /* start half */
+  overflow: hidden;
+}
+
+.slider-handle {
+  position: absolute;
+  z-index: 3;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4px;
+  height: 100%;
+  background: #fff;
+  cursor: ew-resize;
+}
+
+.overlay-content {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  z-index: 4;
+  color: #fff;
+  text-shadow: 0 0 5px #000;
+}

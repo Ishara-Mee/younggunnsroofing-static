@@ -12,6 +12,10 @@
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
 
+<link rel="stylesheet" href="https://unpkg.com/beerslider/dist/BeerSlider.css">
+<script src="https://unpkg.com/beerslider/dist/BeerSlider.js"></script>
+
+
 <!-- Color Switcher Mockup -->
 <link href="css/color-switcher-design.css" rel="stylesheet">
 
@@ -570,18 +574,23 @@ Young Ganns Roofing</h2>
 				
 				<!-- Project Block Four -->
 				<div class="project-block-four">
-					<div class="inner-box">
-						<div class="image">
-							<img src="images/gallery/21.jpg" alt="" />
-							<div class="overlay-box">
-								<div class="content">
-									<div class="title">ROOF REPAIR</div>
-									<h4><a href="#0">Low Rise Building & Repair Roof</a></h4>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
+  <div class="inner-box">
+    <div class="image">
+      <div class="beer-slider-wrapper">
+        <div class="beer-slider" data-beer-label="After">
+          <!-- After Image -->
+          <img src="images/gallery/21.jpg" alt="Roof After Repair" id="after-img">
+
+          <!-- Before Image Reveal -->
+          <div class="beer-reveal" id="before-reveal" data-beer-label="Before">
+            <img src="images/gallery/before.jpg" alt="Roof Before Repair">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 				
 				<!-- Project Block Four -->
 				<div class="project-block-four">
@@ -1259,7 +1268,30 @@ Young Ganns Roofing</h2>
 <script src="js/jquery-ui.js"></script>
 <script src="js/script.js"></script>
 <script src="js/color-settings.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const slider = document.querySelector('.beer-slider');
+  const beer = new BeerSlider(slider);
+  const reveal = document.getElementById('before-reveal');
 
+  // Start page with full Before image
+  reveal.style.width = "100%";
+  beer.setPosition(100);
+
+  // Toggle full Before/After on click anywhere inside slider
+  slider.addEventListener('click', () => {
+    if (reveal.style.width === "100%") {
+      // Show full After
+      reveal.style.width = "0%";
+      beer.setPosition(0);
+    } else {
+      // Show full Before
+      reveal.style.width = "100%";
+      beer.setPosition(100);
+    }
+  });
+});
+</script>
 <!--[if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script><![endif]-->
 <!--[if lt IE 9]><script src="js/respond.js"></script><![endif]-->
 
