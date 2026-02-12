@@ -891,13 +891,17 @@ $(window).on('load', function () {
     }
 
     // ===============================
-    // BeerSlider (UNCHANGED LOGIC)
+    // BeerSlider (hover disabled)
     // ===============================
     document.querySelectorAll('.beer-slider-wrapper').forEach(wrapper => {
         const slider = wrapper.querySelector('.beer-slider');
         const reveal = slider.querySelector('.beer-reveal');
 
+        // Initialize BeerSlider
         new BeerSlider(slider, { start: 50 });
+
+        // 🛑 STOP hover: disable mouse events on slider
+        slider.style.pointerEvents = 'none';
 
         const btnBefore = wrapper.querySelector('.btn-before');
         const btnAfter = wrapper.querySelector('.btn-after');
@@ -916,7 +920,6 @@ $(window).on('load', function () {
 
 });
 </script>
-
 
 
 <!--[if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script><![endif]-->
