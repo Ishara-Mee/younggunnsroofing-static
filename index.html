@@ -808,57 +808,70 @@
 <script src="js/color-settings.js"></script>
 
 <script>
-$(document).ready(function(){
+$(window).on('load', function () {
 
-    // Initialize Owl Carousel
-    $(".three-item-carousel").owlCarousel({
-        loop: true,
-        margin: 30,
-        nav: true,
-        dots: false,
-        autoplay: false, // stop auto sliding
-		   autoplayTimeout: 50000,
-        smartSpeed: 7000,
-        navText: [
-            '<i class="fas fa-chevron-left"></i>',
-            '<i class="fas fa-chevron-right"></i>'
-        ],
-        responsive: {
-            0: { items: 1 },
-            600: { items: 2 },
-            1000: { items: 3 }
-        }
-    });
+    var $carousel = $('.three-item-carousel');
 
-    // Initialize BeerSlider for each slider wrapper
+    // ✅ SAFELY initialize only if not already initialized
+    if (!$carousel.hasClass('owl-loaded')) {
+        $carousel.owlCarousel({
+            loop: true,
+            margin: 30,
+            nav: true,
+            dots: false,
+            autoplay: false,          // 🚫 STOP autoplay
+            autoplayTimeout: 0,       // 🚫 STOP autoplay
+            autoplayHoverPause: false,
+            smartSpeed: 7000,
+            navText: [
+                '<i class="fas fa-chevron-left"></i>',
+                '<i class="fas fa-chevron-right"></i>'
+            ],
+            responsive: {
+                0: { items: 1 },
+                600: { items: 2 },
+                1000: { items: 3 }
+            }
+        });
+    }
+
+    // 🛑 HARD FORCE STOP (overrides theme script.js)
+    $carousel.trigger('stop.owl.autoplay');
+
+    var owl = $carousel.data('owl.carousel');
+    if (owl) {
+        owl.settings.autoplay = false;
+        owl.options.autoplay = false;
+    }
+
+    // ===============================
+    // BeerSlider (UNCHANGED LOGIC)
+    // ===============================
     document.querySelectorAll('.beer-slider-wrapper').forEach(wrapper => {
         const slider = wrapper.querySelector('.beer-slider');
         const reveal = slider.querySelector('.beer-reveal');
 
-        // Initialize BeerSlider without auto-start
-        new BeerSlider(slider, {
-            start: 50 // start in middle
-        });
+        new BeerSlider(slider, { start: 50 });
 
         const btnBefore = wrapper.querySelector('.btn-before');
         const btnAfter = wrapper.querySelector('.btn-after');
 
-        // Add smooth CSS transition for slower animation
-        reveal.style.transition = 'width 0.8s ease'; // 0.8s for smooth slow transition
-        reveal.style.width = '50%'; // start at middle
+        reveal.style.transition = 'width 0.8s ease';
+        reveal.style.width = '50%';
 
-        // Button click handlers
         btnBefore.addEventListener('click', () => {
-            reveal.style.width = '100%'; // show full before
+            reveal.style.width = '100%';
         });
 
         btnAfter.addEventListener('click', () => {
-            reveal.style.width = '0%'; // show full after
+            reveal.style.width = '0%';
         });
     });
 
 });
 </script>
+
+
 
 <!--[if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script><![endif]-->
 <!--[if lt IE 9]><script src="js/respond.js"></script><![endif]-->
