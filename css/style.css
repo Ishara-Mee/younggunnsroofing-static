@@ -11041,3 +11041,71 @@
 .before-after-buttons button:hover {
   background: #000000;
 }
+/* REMOVE grab / hand cursor everywhere in project section */
+/* Remove grab cursor completely from project slider */
+/* Remove grab cursor and pointer events on images */
+.project-section-five,
+.project-section-five * {
+  cursor: default !important;
+}
+
+.project-section-five .owl-item img {
+  pointer-events: none; /* prevents clicking or dragging on images */
+}
+
+/* Keep nav arrows clickable */
+.owl-carousel .owl-nav button {
+  pointer-events: auto;
+  cursor: pointer;
+  background: rgba(0,0,0,0.6);
+  color: #fff;
+  border-radius: 50%;
+  padding: 10px 15px;
+  font-size: 18px;
+  border: none;
+  transition: 0.3s;
+}
+
+.owl-carousel .owl-nav button:hover {
+  background: rgba(0,0,0,0.9);
+}
+
+/* Disable BeerSlider interaction */
+.beer-slider,
+.beer-slider * {
+  pointer-events: none !important;
+  cursor: default !important;
+}
+
+/* Keep Before/After buttons clickable */
+.before-after-buttons,
+.before-after-buttons * {
+  pointer-events: auto !important;
+  cursor: pointer !important;
+}
+
+/* Hide overlay completely */
+.project-section-five .overlay-box,
+.project-section-five .project-block-four:hover .overlay-box {
+    display: none !important;      /* hide overlay */
+    opacity: 0 !important;         /* remove any opacity */
+    pointer-events: none !important; /* ignore hover events */
+}
+
+/* Prevent any hover effects on image column */
+.project-section-five .project-block-four .image:hover {
+    transform: none !important;    /* remove hover scaling or animation */
+}
+/* FORCE overlay hidden */
+.project-section-five .overlay-box {
+    display: none !important;      /* hide overlay completely */
+    opacity: 0 !important;         /* remove any opacity */
+    pointer-events: none !important; /* ignore any hover/mouse events */
+}
+
+/* Also stop any hover triggers */
+.project-section-five .project-block-four:hover .overlay-box {
+    display: none !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+}

@@ -852,27 +852,37 @@
 <!-- Custom Scripts -->
 <script src="js/script.js"></script>
 <script src="js/color-settings.js"></script>
-
 <script>
 $(window).on('load', function () {
 
     var $carousel = $('.three-item-carousel');
 
-    // ✅ SAFELY initialize only if not already initialized
+    // ===============================
+    // Owl Carousel (drag disabled)
+    // ===============================
     if (!$carousel.hasClass('owl-loaded')) {
         $carousel.owlCarousel({
             loop: true,
             margin: 30,
             nav: true,
             dots: false,
-            autoplay: false,          // 🚫 STOP autoplay
-            autoplayTimeout: 0,       // 🚫 STOP autoplay
+
+            autoplay: false,
+            autoplayTimeout: 0,
             autoplayHoverPause: false,
-            smartSpeed: 7000,
+
+            mouseDrag: false,   // ❌ disable mouse drag
+            touchDrag: false,   // ❌ disable touch drag
+            pullDrag: false,
+            freeDrag: false,
+
+            smartSpeed: 700,
+
             navText: [
                 '<i class="fas fa-chevron-left"></i>',
                 '<i class="fas fa-chevron-right"></i>'
             ],
+
             responsive: {
                 0: { items: 1 },
                 600: { items: 2 },
@@ -881,9 +891,8 @@ $(window).on('load', function () {
         });
     }
 
-    // 🛑 HARD FORCE STOP (overrides theme script.js)
+    // HARD STOP autoplay
     $carousel.trigger('stop.owl.autoplay');
-
     var owl = $carousel.data('owl.carousel');
     if (owl) {
         owl.settings.autoplay = false;
@@ -891,36 +900,50 @@ $(window).on('load', function () {
     }
 
     // ===============================
-    // BeerSlider (hover disabled)
+    // BeerSlider (buttons only)
     // ===============================
     document.querySelectorAll('.beer-slider-wrapper').forEach(wrapper => {
+
         const slider = wrapper.querySelector('.beer-slider');
         const reveal = slider.querySelector('.beer-reveal');
 
         // Initialize BeerSlider
         new BeerSlider(slider, { start: 50 });
 
-        // 🛑 STOP hover: disable mouse events on slider
+        // Disable all mouse interaction
         slider.style.pointerEvents = 'none';
 
         const btnBefore = wrapper.querySelector('.btn-before');
-        const btnAfter = wrapper.querySelector('.btn-after');
+        const btnAfter  = wrapper.querySelector('.btn-after');
 
         reveal.style.transition = 'width 0.8s ease';
         reveal.style.width = '50%';
 
-        btnBefore.addEventListener('click', () => {
+        btnBefore.addEventListener('click', function (e) {
+            e.stopPropagation();
             reveal.style.width = '100%';
         });
 
-        btnAfter.addEventListener('click', () => {
+        btnAfter.addEventListener('click', function (e) {
+            e.stopPropagation();
             reveal.style.width = '0%';
         });
     });
 
 });
-</script>
+// Remove all overlay-boxes and prevent hover via JS
+document.querySelectorAll('.project-section-five .overlay-box').forEach(overlay => {
+    overlay.style.display = 'none';
+});
 
+// Disable hover events on the wrapper
+document.querySelectorAll('.project-section-five .beer-slider-wrapper').forEach(wrapper => {
+    wrapper.onmouseenter = null;
+    wrapper.onmouseover = null;
+    wrapper.onmousemove = null;
+});
+
+</script>
 
 <!--[if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script><![endif]-->
 <!--[if lt IE 9]><script src="js/respond.js"></script><![endif]-->
