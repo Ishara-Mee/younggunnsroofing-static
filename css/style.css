@@ -11084,28 +11084,52 @@
   cursor: pointer !important;
 }
 
-/* Hide overlay completely */
+/* ===============================
+   REMOVE IMAGE COLOR CHANGE
+=============================== */
+
+/* Remove tap highlight (mobile) */
+.project-section-five * {
+  -webkit-tap-highlight-color: transparent !important;
+  tap-highlight-color: transparent !important;
+}
+
+/* Disable hover / active / focus effects */
+.project-section-five img,
+.project-section-five .image,
+.project-section-five .inner-box,
+.project-section-five .beer-slider-wrapper,
+.project-section-five .beer-slider {
+  filter: none !important;
+  opacity: 1 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  transform: none !important;
+}
+
+/* Kill hover overlays */
 .project-section-five .overlay-box,
-.project-section-five .project-block-four:hover .overlay-box {
-    display: none !important;      /* hide overlay */
-    opacity: 0 !important;         /* remove any opacity */
-    pointer-events: none !important; /* ignore hover events */
+.project-section-five .image:before,
+.project-section-five .image:after,
+.project-section-five .inner-box:before,
+.project-section-five .inner-box:after {
+  display: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
 }
 
-/* Prevent any hover effects on image column */
-.project-section-five .project-block-four .image:hover {
-    transform: none !important;    /* remove hover scaling or animation */
-}
-/* FORCE overlay hidden */
-.project-section-five .overlay-box {
-    display: none !important;      /* hide overlay completely */
-    opacity: 0 !important;         /* remove any opacity */
-    pointer-events: none !important; /* ignore any hover/mouse events */
+/* Stop hover color change */
+.project-section-five *:hover,
+.project-section-five *:active,
+.project-section-five *:focus {
+  color: inherit !important;
+  background: transparent !important;
+  outline: none !important;
 }
 
-/* Also stop any hover triggers */
-.project-section-five .project-block-four:hover .overlay-box {
-    display: none !important;
-    opacity: 0 !important;
-    pointer-events: none !important;
+/* Prevent image highlight on click */
+.project-section-five img {
+  pointer-events: none;
+  user-select: none;
 }
+

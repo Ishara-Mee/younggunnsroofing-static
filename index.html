@@ -855,95 +855,113 @@
 <script>
 $(window).on('load', function () {
 
-    var $carousel = $('.three-item-carousel');
+  /* =====================================
+     PROJECT CAROUSEL – ARROWS ONLY
+  ===================================== */
+  const $carousel = $('.three-item-carousel');
 
-    // ===============================
-    // Owl Carousel (drag disabled)
-    // ===============================
-    if (!$carousel.hasClass('owl-loaded')) {
-        $carousel.owlCarousel({
-            loop: true,
-            margin: 30,
-            nav: true,
-            dots: false,
+  if (!$carousel.hasClass('owl-loaded')) {
+    $carousel.owlCarousel({
+      loop: true,
+      margin: 30,
+      nav: true,
+      dots: false,
 
-            autoplay: false,
-            autoplayTimeout: 0,
-            autoplayHoverPause: false,
+      autoplay: false,
 
-            mouseDrag: false,   // ❌ disable mouse drag
-            touchDrag: false,   // ❌ disable touch drag
-            pullDrag: false,
-            freeDrag: false,
+      mouseDrag: false,
+      touchDrag: false,
+      pullDrag: false,
+      freeDrag: false,
 
-            smartSpeed: 700,
+      smartSpeed: 700,
 
-            navText: [
-                '<i class="fas fa-chevron-left"></i>',
-                '<i class="fas fa-chevron-right"></i>'
-            ],
+      responsive: {
+        0: { items: 1 },
+        600: { items: 2 },
+        1000: { items: 3 }
+      }
+    });
+  }
 
-            responsive: {
-                0: { items: 1 },
-                600: { items: 2 },
-                1000: { items: 3 }
-            }
-        });
-    }
+  /* HARD STOP autoplay */
+  $carousel.trigger('stop.owl.autoplay');
+  const owl = $carousel.data('owl.carousel');
+  if (owl) {
+    owl.settings.autoplay = false;
+    owl.options.autoplay = false;
+  }
 
-    // HARD STOP autoplay
-    $carousel.trigger('stop.owl.autoplay');
-    var owl = $carousel.data('owl.carousel');
-    if (owl) {
-        owl.settings.autoplay = false;
-        owl.options.autoplay = false;
-    }
+  /* =====================================
+     BEERSLIDER – BUTTONS ONLY
+  ===================================== */
+  document.querySelectorAll('.beer-slider-wrapper').forEach(wrapper => {
 
-    // ===============================
-    // BeerSlider (buttons only)
-    // ===============================
-    document.querySelectorAll('.beer-slider-wrapper').forEach(wrapper => {
+    const slider = wrapper.querySelector('.beer-slider');
+    const reveal = slider.querySelector('.beer-reveal');
 
-        const slider = wrapper.querySelector('.beer-slider');
-        const reveal = slider.querySelector('.beer-reveal');
+    /* Init BeerSlider */
+    new BeerSlider(slider, { start: 50 });
 
-        // Initialize BeerSlider
-        new BeerSlider(slider, { start: 50 });
+    /* Disable ALL interaction on slider */
+    slider.style.pointerEvents = 'none';
 
-        // Disable all mouse interaction
-        slider.style.pointerEvents = 'none';
+    /* Smooth animation */
+    reveal.style.transition = 'width 0.8s ease';
+    reveal.style.width = '50%';
 
-        const btnBefore = wrapper.querySelector('.btn-before');
-        const btnAfter  = wrapper.querySelector('.btn-after');
+    const btnBefore = wrapper.querySelector('.btn-before');
+    const btnAfter  = wrapper.querySelector('.btn-after');
 
-        reveal.style.transition = 'width 0.8s ease';
-        reveal.style.width = '50%';
-
-        btnBefore.addEventListener('click', function (e) {
-            e.stopPropagation();
-            reveal.style.width = '100%';
-        });
-
-        btnAfter.addEventListener('click', function (e) {
-            e.stopPropagation();
-            reveal.style.width = '0%';
-        });
+    btnBefore.addEventListener('click', function (e) {
+      e.preventDefault();
+      e.stopPropagation();
+      reveal.style.width = '100%';
     });
 
-});
-// Remove all overlay-boxes and prevent hover via JS
-document.querySelectorAll('.project-section-five .overlay-box').forEach(overlay => {
-    overlay.style.display = 'none';
+    btnAfter.addEventListener('click', function (e) {
+      e.preventDefault();
+      e.stopPropagation();
+      reveal.style.width = '0%';
+    });
+  });
+
 });
 
-// Disable hover events on the wrapper
-document.querySelectorAll('.project-section-five .beer-slider-wrapper').forEach(wrapper => {
-    wrapper.onmouseenter = null;
-    wrapper.onmouseover = null;
-    wrapper.onmousemove = null;
+/* =====================================
+   HARD BLOCK TOUCH / DRAG EVENTS
+===================================== */
+document.querySelectorAll('.project-section-five').forEach(section => {
+
+  /* Touch */
+  section.addEventListener('touchstart', e => e.preventDefault(), { passive: false });
+  section.addEventListener('touchmove',  e => e.preventDefault(), { passive: false });
+  section.addEventListener('touchend',   e => e.preventDefault(), { passive: false });
+
+  /* Mouse drag */
+  section.addEventListener('mousedown', e => e.preventDefault());
+  section.addEventListener('mousemove', e => e.preventDefault());
+
+});
+
+/* =====================================
+   REMOVE OVERLAYS & HOVER EFFECTS
+===================================== */
+document.querySelectorAll('.project-section-five .overlay-box').forEach(el => {
+  el.style.display = 'none';
+});
+
+document.querySelectorAll('.project-section-five').forEach(section => {
+  section.addEventListener('touchstart', e => e.preventDefault(), { passive: false });
+  section.addEventListener('touchmove',  e => e.preventDefault(), { passive: false });
+});
+document.querySelectorAll('.project-section-five').forEach(section => {
+  section.addEventListener('touchstart', e => e.preventDefault(), { passive: false });
+  section.addEventListener('touchmove',  e => e.preventDefault(), { passive: false });
 });
 
 </script>
+
 
 <!--[if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script><![endif]-->
 <!--[if lt IE 9]><script src="js/respond.js"></script><![endif]-->
