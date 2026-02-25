@@ -10946,10 +10946,10 @@
 .color-palate{
 	display:none;
 }
-.before-after-wrapper {
+/*.before-after-wrapper {
   position: relative;
   width: 100%;
-  max-width: 600px; /* adjust as needed */
+  max-width: 600px; 
   overflow: hidden;
 }
 
@@ -10968,7 +10968,7 @@
 
 .after-image {
   z-index: 2;
-  width: 50%; /* start half */
+  width: 50%; 
   overflow: hidden;
 }
 
@@ -11000,7 +11000,7 @@
 .beer-reveal img {
   display: block;
   width: 100%;
-  pointer-events: none; /* allows buttons to be clickable */
+  pointer-events: none; 
 }
 
 .before-after-buttons {
@@ -11010,7 +11010,7 @@
   right: 15px;
   display: flex;
   justify-content: space-between;
-  z-index: 10; /* ensures buttons are above images */
+  z-index: 10; 
 }
 .before-after-buttons button {
   padding: 8px 15px;
@@ -11025,7 +11025,7 @@
   background-color: rgba(0,0,0,0.8);
 }
 
-/* Hide buttons in cloned Owl slides */
+
 .owl-item.cloned .before-after-buttons {
   display: none;
 }
@@ -11041,19 +11041,17 @@
 .before-after-buttons button:hover {
   background: #000000;
 }
-/* REMOVE grab / hand cursor everywhere in project section */
-/* Remove grab cursor completely from project slider */
-/* Remove grab cursor and pointer events on images */
+
 .project-section-five,
 .project-section-five * {
   cursor: default !important;
 }
 
 .project-section-five .owl-item img {
-  pointer-events: none; /* prevents clicking or dragging on images */
+  pointer-events: none; /
 }
 
-/* Keep nav arrows clickable */
+
 .owl-carousel .owl-nav button {
   pointer-events: auto;
   cursor: pointer;
@@ -11070,31 +11068,26 @@
   background: rgba(0,0,0,0.9);
 }
 
-/* Disable BeerSlider interaction */
 .beer-slider,
 .beer-slider * {
   pointer-events: none !important;
   cursor: default !important;
 }
 
-/* Keep Before/After buttons clickable */
+
 .before-after-buttons,
 .before-after-buttons * {
   pointer-events: auto !important;
   cursor: pointer !important;
 }
 
-/* ===============================
-   REMOVE IMAGE COLOR CHANGE
-=============================== */
 
-/* Remove tap highlight (mobile) */
 .project-section-five * {
   -webkit-tap-highlight-color: transparent !important;
   tap-highlight-color: transparent !important;
 }
 
-/* Disable hover / active / focus effects */
+
 .project-section-five img,
 .project-section-five .image,
 .project-section-five .inner-box,
@@ -11107,7 +11100,7 @@
   transform: none !important;
 }
 
-/* Kill hover overlays */
+
 .project-section-five .overlay-box,
 .project-section-five .image:before,
 .project-section-five .image:after,
@@ -11118,7 +11111,7 @@
   visibility: hidden !important;
 }
 
-/* Stop hover color change */
+
 .project-section-five *:hover,
 .project-section-five *:active,
 .project-section-five *:focus {
@@ -11127,9 +11120,215 @@
   outline: none !important;
 }
 
-/* Prevent image highlight on click */
+
 .project-section-five img {
   pointer-events: none;
   user-select: none;
+}*/
+
+/* Before / After Wrapper */
+.beer-slider-wrapper {
+  position: relative;
+  width: 100%;
+  margin-bottom: 30px;
 }
 
+.beer-slider {
+  width: 100%;
+  overflow: hidden;
+  border-radius: 6px;
+}
+
+/* IMAGES */
+.beer-slider img,
+.beer-slider .beer-reveal img {
+  width: 100%;
+  display: block;
+  filter: none !important;
+  transition: none !important;
+}
+
+/* BUTTONS */
+.before-after-buttons {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  right: 10px;
+  display: flex;
+  justify-content: space-between;
+  z-index: 10;
+}
+
+.before-after-buttons button {
+  padding: 6px 12px;
+  background-color: rgba(0,0,0,0.6);
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.before-after-buttons button:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+/* REMOVE OVERLAY */
+
+/* Remove Juxtapose credit text */
+/* ------------------------------ */
+/* Remove Juxtapose credit text */
+/* ------------------------------ */
+.jx-credit,
+.jx-knightlab {
+  display: none !important;
+}
+
+/* ------------------------------ */
+/* Page container spacing */
+/* ------------------------------ */
+.project-section-two .auto-container {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+@media (min-width: 1200px) {
+  .project-section-two .auto-container {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+}
+
+/* ------------------------------ */
+/* Section padding and image spacing */
+/* ------------------------------ */
+.project-section-two {
+  padding: 80px 0;
+}
+
+.project-block-two .image {
+  margin-bottom: 30px;
+}
+
+/* ------------------------------ */
+/* Juxtapose container full width */
+/* ------------------------------ */
+/* ------------------------------ */
+/* Remove Juxtapose credit text */
+/* ------------------------------ */
+/* ========================= */
+/* Hide Juxtapose branding/credits */
+/* ========================= */
+.jx-credit,
+.jx-knightlab {
+  display: none !important;
+  font-family: inherit !important;
+}
+
+/* ========================= */
+/* Page container spacing */
+/* ========================= */
+.project-section-two .auto-container {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+@media (min-width: 1200px) {
+  .project-section-two .auto-container {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+}
+
+/* ========================= */
+/* Section padding and image spacing */
+/* ========================= */
+.project-section-two {
+  padding: 80px 0;
+}
+
+.project-block-two .image {
+  margin-bottom: 30px;
+  padding: 0 !important;        /* remove inner padding */
+  overflow: visible !important; /* allow handle to reach edges */
+}
+
+/* ========================= */
+/* Juxtapose container full width */
+/* ========================= */
+.juxtapose {
+  width: 100% !important;
+  overflow: visible !important;
+  position: relative;
+}
+
+/* ========================= */
+/* Remove Juxtapose dark overlay and prevent auto jump */
+/* ========================= */
+.juxtapose .jx-slider-mask {
+  background: transparent !important;  /* remove dark mask */
+  left: 0 !important;                  /* allow full left */
+  right: 0 !important;                 /* allow full right */
+  transition: none !important;         /* prevent auto snap */
+}
+
+/* ========================= */
+/* Images crisp, full color, no filter */
+/* ========================= */
+.juxtapose img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  image-rendering: auto;
+  filter: none !important;
+  transition: none !important;
+  display: block;
+  user-select: none; /* prevent selection while dragging */
+}
+
+/* ========================= */
+/* Slider handle styling */
+/* ========================= */
+.juxtapose .jx-slider-handle {
+  width: 40px !important;
+  height: 40px !important;
+  background-color: #fff !important; /* handle color */
+  border: 2px solid #000 !important; /* handle border */
+  border-radius: 50% !important;
+  box-shadow: 0 0 5px rgba(0,0,0,0.2);
+  cursor: grab !important;
+  transition: none !important;       /* prevent jump on click */
+  z-index: 10;
+}
+
+/* Handle on hover */
+.juxtapose .jx-slider-handle:hover {
+  background-color: #f1f1f1 !important;
+}
+
+/* ========================= */
+/* Prevent touch auto-snap on mobile */
+/* ========================= */
+.juxtapose .jx-slider {
+  touch-action: pan-x;
+}
+
+/* ========================= */
+/* Optional: responsive adjustments */
+/* ========================= */
+@media (max-width: 767px) {
+  .juxtapose {
+    height: auto;
+  }
+
+  .juxtapose .jx-slider-handle {
+    width: 30px !important;
+    height: 30px !important;
+  }
+}
+
+/* ========================= */
+/* Prevent image blur while dragging */
+/* ========================= */
+.juxtapose .jx-slider-mask img {
+  image-rendering: auto !important;
+}

@@ -13,7 +13,11 @@
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
 
 <link rel="stylesheet" href="https://unpkg.com/beerslider/dist/BeerSlider.css">
-<script src="https://unpkg.com/beerslider/dist/BeerSlider.js"></script>
+<!-- Bootstrap  -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+
+<!-- Juxtapose Slider CSS -->
+<link rel="stylesheet" href="https://cdn.knightlab.com/libs/juxtapose/latest/css/juxtapose.css">
 
 
 <!-- Color Switcher Mockup -->
@@ -25,35 +29,13 @@
 <link rel="shortcut icon" href="images/fav.png" type="image/x-icon">
 <link rel="icon" href="images/fav.png" type="image/x-icon">
 
+
+<link rel="stylesheet" href="css/magnific-popup.css">
+
 <!-- Responsive -->
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-<style>
-	.beer-slider-wrapper {
-  width: 100%;
-  position: relative;
-}
-.before-after-buttons {
-  position: absolute;
-  bottom: 15px;
-  left: 15px;
-  right: 15px;
-  display: flex;
-  justify-content: space-between;
-}
-.before-after-buttons button {
-  padding: 8px 15px;
-  border: none;
-  background-color: rgba(0,0,0,0.6);
-  color: #fff;
-  cursor: pointer;
-  border-radius: 4px;
-  font-size: 14px;
-}
-.before-after-buttons button:hover {
-  background-color: rgba(0,0,0,0.8);
-}
-</style>
+
 </head>
 
 <body>
@@ -94,9 +76,9 @@
 										<li><a href="index.html">Home</a></li>
 										<li><a href="about.html">About Us</a></li>
 										<li><a href="services.html">Our Services</a></li>
-										<li><a href="projects.html">Our Projects</a></li>
-										<li><a href="faq.html">FAQ</a></li>
-										<li><a href="contact.html">Contact us</a></li>
+										<li><a href="projects.html">Gallery</a></li>
+										
+										<li><a href="contact.html">Booking</a></li>
 								</ul>
 							</div>
 							
@@ -251,13 +233,19 @@
 								<div class="image">
 									<img src="images/main-slider/image-4.jpg" alt="" />
 								</div>
-								<!-- Video Box -->
-								<div class="video-box style-three">
-									<figure class="video-image">
-										<img class="transition-500ms" src="images/resource/video-image-4.jpg" alt="">
-									</figure>
-									<a href="https://www.youtube.com/watch?v=kxPCFljwJws" class="lightbox-image overlay-box"><span class="flaticon-media-play-symbol transition-900ms"><i class="ripple"></i></span></a>
-								</div>
+							<!-- Video Box -->
+<div class="video-box style-three">
+  <figure class="video-image">
+    <img class="transition-500ms" src="images/resource/video-image-4.jpg" alt="">
+  </figure>
+
+  <a href="images/video/young-gunns-showcase-v2.mp4"
+     class="lightbox-image overlay-box video-lightbox">
+    <span class="flaticon-media-play-symbol transition-900ms">
+      <i class="ripple"></i>
+    </span>
+  </a>
+</div>
 							</div>
 						</div>
 						
@@ -453,12 +441,14 @@
 						<div class="content-box">
 							<div class="service-number">01</div>
 							<div class="icon flaticon-3d"></div>
-							<h4><a href="roof-renovation.html">Roof Renovation</a></h4>
-							<div class="text">Roofing whenan unknow printer took a gallery of type and scrambled it to make a type specim...</div>
-							<a class="view-detail" href="roof-renovation.html">View Details</a>
+							<h4><a href="#0">Roof Repairs</a></h4>
+<div class="text">
+Roof repairs when unexpected leaks appear and tiles wear down, our experts handle every type of damage to keep your roof safe and secure...
+</div>
+							<a class="view-detail" href="#0">View Details</a>
 						</div>
 						<div class="image">
-							<a href="roof-renovation.html"><img src="images/resource/service-3.jpg" alt="" /></a>
+							<a href="#0"><img src="images/resource/service-3.jpg" alt="" /></a>
 						</div>
 					</div>
 				</div>
@@ -467,14 +457,16 @@
 				<div class="service-block-six col-lg-4 col-md-6 col-sm-12">
 					<div class="inner-box wow fadeInUp" data-wow-delay="0ms" data-wow-duration="1500ms">
 						<div class="image">
-							<a href="roof-renovation.html"><img src="images/resource/service-4.jpg" alt="" /></a>
+							<a href="#0"><img src="images/resource/service-4.jpg" alt="" /></a>
 						</div>
 						<div class="content-box">
 							<div class="service-number">02</div>
 							<div class="icon flaticon-3d"></div>
-							<h4><a href="roof-renovation.html">Roof Renovation</a></h4>
-							<div class="text">Roofing whenan unknow printer took a gallery of type and scrambled it to make a type specim...</div>
-							<a class="view-detail" href="roof-renovation.html">View Details</a>
+							<h4><a href="#0">Full Replacements</a></h4>
+<div class="text">
+Roofing when an unknown contractor replaced tiles and materials, mixing styles and textures to create a complete roof transformation...
+</div>
+							<a class="view-detail" href="#0">View Details</a>
 						</div>
 					</div>
 				</div>
@@ -485,12 +477,14 @@
 						<div class="content-box">
 							<div class="service-number">03</div>
 							<div class="icon flaticon-3d"></div>
-							<h4><a href="roof-renovation.html">Roofing Repair</a></h4>
-							<div class="text">Roofing whenan unknow printer took a gallery of type and scrambled it to make a type specim...</div>
-							<a class="view-detail" href="roof-renovation.html">View Details</a>
+							<h4><a href="#0">New Builds</a></h4>
+<div class="text">
+Roofing when a team designed and assembled a brand new structure, combining materials and patterns to create a complete roof from scratch...
+</div>
+							<a class="view-detail" href="#0">View Details</a>
 						</div>
 						<div class="image">
-							<a href="roof-renovation.html"><img src="images/resource/service-5.jpg" alt="" /></a>
+							<a href="#0"><img src="images/resource/service-5.jpg" alt="" /></a>
 						</div>
 					</div>
 				</div>
@@ -522,24 +516,45 @@
 						<div class="inner-column">
 							<!-- Sec Title -->
 							<div class="sec-title">
-								<div class="title">Why Roonix?...</div>
+								<div class="title">Why YoungGunns Roofing?...</div>
 								<h2>The reason for people choose us?</h2>
 								<div class="text">With more than four decades of proven success in quality roofing services, Shelder Roofing and Retro-Fit group is a family-owned & operated business serving the greater San Fransisco area state. Our expert team has been dedicated to providing the best service and quality available in the area.</div>
 							</div>
+							
 							<div class="row clearfix">
-								<div class="col-lg-6 col-md-6 col-sm-12">
-									<ul class="option">
-										<li>Expert & Professional Engineers</li>
-										<li>45+ Sucessfully Project Done</li>
-									</ul>
-								</div>
-								<div class="col-lg-6 col-md-6 col-sm-12">
-									<ul class="option">
-										<li>We are Award Winning Company</li>
-										<li>Always Work With Energetic Team</li>
-									</ul>
-								</div>
-							</div>
+    <div class="col-lg-6 col-md-6 col-sm-12">
+        <ul class="option">
+            <li>Expert & Professional Engineers</li>
+        </ul>
+    </div>
+    <div class="col-lg-6 col-md-6 col-sm-12">
+        <ul class="option">
+            <li>Reliable and on time</li>
+        </ul>
+    </div>
+
+    <div class="col-lg-6 col-md-6 col-sm-12">
+        <ul class="option">
+            <li>Clear, upfront pricing</li>
+        </ul>
+    </div>
+    <div class="col-lg-6 col-md-6 col-sm-12">
+        <ul class="option">
+            <li>Quality materials</li>
+        </ul>
+    </div>
+
+    <div class="col-lg-6 col-md-6 col-sm-12">
+        <ul class="option">
+            <li>Proper workmanship</li>
+        </ul>
+    </div>
+    <div class="col-lg-6 col-md-6 col-sm-12">
+        <ul class="option">
+            <li>Easy to deal with</li>
+        </ul>
+    </div>
+</div>
 						</div>
 					</div>
 					
@@ -556,8 +571,143 @@
 			</div>
 		</div>
 	</section>
+	<!-- Project Section Two -->
+<section class="project-section-two">
+    <div class="auto-container">
+        <div class="sec-title centered">
+            <div class="title">...Our Project...</div>
+            <h2>Our Latest Projects</h2>
+        </div>
+
+        <!-- First Line: Two images -->
+        <div class="row clearfix">
+      <div class="project-block-two col-lg-4 col-md-6 col-sm-12">
+        <div class="inner-box">
+          <div class="image">
+            <div class="juxtapose" data-startingposition="50%" data-showlabels="true" data-showcredits="false">
+              <img src="images/gallery/before2.jpg" data-label="Before">
+              <img src="images/gallery/after2.jpg" data-label="After">
+            </div>
+            <div class="before-after-buttons">
+              <button class="before-btn" onclick="this.closest('.image').querySelector('.juxtapose').style.setProperty('--slider-position','0%')">Before</button>
+              <button class="after-btn" onclick="this.closest('.image').querySelector('.juxtapose').style.setProperty('--slider-position','100%')">After</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+            <div class="project-block-two col-lg-8 col-md-12 col-sm-12">
+        <div class="inner-box">
+          <div class="image">
+            <div class="juxtapose" data-startingposition="50%" data-showlabels="true" data-showcredits="false">
+              <img src="images/gallery/before3.jpg" data-label="Before">
+              <img src="images/gallery/after3.jpg" data-label="After">
+            </div>
+            <div class="before-after-buttons">
+              <button class="before-btn" onclick="this.closest('.image').querySelector('.juxtapose').style.setProperty('--slider-position','0%')">Before</button>
+              <button class="after-btn" onclick="this.closest('.image').querySelector('.juxtapose').style.setProperty('--slider-position','100%')">After</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+         <!-- Second Line: Two images -->
+    <div class="row clearfix">
+      <div class="project-block-two col-lg-8 col-md-12 col-sm-12">
+        <div class="inner-box">
+          <div class="image">
+            <div class="juxtapose" data-startingposition="50%" data-showlabels="true" data-showcredits="false">
+              <img src="images/gallery/before3.jpg" data-label="Before">
+              <img src="images/gallery/after3.jpg" data-label="After">
+            </div>
+            <div class="before-after-buttons">
+              <button class="before-btn" onclick="this.closest('.image').querySelector('.juxtapose').style.setProperty('--slider-position','0%')">Before</button>
+              <button class="after-btn" onclick="this.closest('.image').querySelector('.juxtapose').style.setProperty('--slider-position','100%')">After</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+             <div class="project-block-two col-lg-4 col-md-6 col-sm-12">
+        <div class="inner-box">
+          <div class="image">
+            <div class="juxtapose" data-startingposition="50%" data-showlabels="true" data-showcredits="false">
+              <img src="images/gallery/before2.jpg" data-label="Before">
+              <img src="images/gallery/after2.jpg" data-label="After">
+            </div>
+            <div class="before-after-buttons">
+              <button class="before-btn" onclick="this.closest('.image').querySelector('.juxtapose').style.setProperty('--slider-position','0%')">Before</button>
+              <button class="after-btn" onclick="this.closest('.image').querySelector('.juxtapose').style.setProperty('--slider-position','100%')">After</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+        <!-- Third Line: Three images -->
+        <div class="row clearfix">
+      <div class="project-block-two col-lg-4 col-md-6 col-sm-12">
+        <div class="inner-box">
+          <div class="image">
+            <div class="juxtapose" data-startingposition="50%" data-showlabels="true" data-showcredits="false">
+              <img src="images/gallery/before2.jpg" data-label="Before">
+              <img src="images/gallery/after2.jpg" data-label="After">
+            </div>
+            <div class="before-after-buttons">
+              <button class="before-btn" onclick="this.closest('.image').querySelector('.juxtapose').style.setProperty('--slider-position','0%')">Before</button>
+              <button class="after-btn" onclick="this.closest('.image').querySelector('.juxtapose').style.setProperty('--slider-position','100%')">After</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+           <div class="project-block-two col-lg-4 col-md-6 col-sm-12">
+        <div class="inner-box">
+          <div class="image">
+            <div class="juxtapose" data-startingposition="50%" data-showlabels="true" data-showcredits="false">
+              <img src="images/gallery/before2.jpg" data-label="Before">
+              <img src="images/gallery/after2.jpg" data-label="After">
+            </div>
+            <div class="before-after-buttons">
+              <button class="before-btn" onclick="this.closest('.image').querySelector('.juxtapose').style.setProperty('--slider-position','0%')">Before</button>
+              <button class="after-btn" onclick="this.closest('.image').querySelector('.juxtapose').style.setProperty('--slider-position','100%')">After</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-block-two col-lg-4 col-md-6 col-sm-12">
+        <div class="inner-box">
+          <div class="image">
+            <div class="juxtapose" data-startingposition="50%" data-showlabels="true" data-showcredits="false">
+              <img src="images/gallery/before2.jpg" data-label="Before">
+              <img src="images/gallery/after2.jpg" data-label="After">
+            </div>
+            <div class="before-after-buttons">
+              <button class="before-btn" onclick="this.closest('.image').querySelector('.juxtapose').style.setProperty('--slider-position','0%')">Before</button>
+              <button class="after-btn" onclick="this.closest('.image').querySelector('.juxtapose').style.setProperty('--slider-position','100%')">After</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Button Box -->
+    <div class="button-box text-center">
+      <a href="projects.html" class="theme-btn btn-style-two clearfix">
+        <span class="btn-wrap">
+          <span class="text-one">More Project</span>
+          <span class="text-two">More Project</span>
+        </span>
+      </a>
+    </div>
+  </div>
+</section>
+
+	
 	<!-- End Choose Section -->
-	<!-- Project Section -->
+	<!-- Project Section 
 <section class="project-section-five">
     <div class="auto-container">
         <div class="sec-title centered">
@@ -567,16 +717,16 @@
 
         <div class="three-item-carousel owl-carousel owl-theme">
 
-            <!-- First Project with Before/After -->
+           
             <div class="project-block-four">
                 <div class="inner-box">
                     <div class="image">
                         <div class="beer-slider-wrapper">
                             <div class="beer-slider" data-beer-label="">
-                                <!-- AFTER IMAGE -->
+                               
                                 <img src="images/gallery/21.jpg" alt="Roof After Repair">
 
-                                <!-- BEFORE IMAGE -->
+                               
                                 <div class="beer-reveal" data-beer-label="">
                                     <img src="images/gallery/before.jpg" alt="Roof Before Repair">
                                 </div>
@@ -591,17 +741,17 @@
                 </div>
             </div>
 
-            <!-- Other Projects -->
+            
             <div class="project-block-four">
     <div class="inner-box">
         <div class="image">
             <div class="beer-slider-wrapper">
                 <div class="beer-slider" data-beer-label="">
                     
-                    <!-- AFTER IMAGE -->
+                   
                     <img src="images/gallery/22.jpg" alt="Roof After Repair">
 
-                    <!-- BEFORE IMAGE -->
+                    
                     <div class="beer-reveal" data-beer-label="">
                         <img src="images/gallery/before22.jpg" alt="Roof Before Repair">
                     </div>
@@ -623,10 +773,10 @@
             <div class="beer-slider-wrapper">
                 <div class="beer-slider" data-beer-label="">
                     
-                    <!-- AFTER IMAGE -->
+                    
                     <img src="images/gallery/23.jpg" alt="Roof After Repair">
 
-                    <!-- BEFORE IMAGE -->
+                  
                     <div class="beer-reveal" data-beer-label="">
                         <img src="images/gallery/before23.jpg" alt="Roof Before Repair">
                     </div>
@@ -650,17 +800,17 @@
 
                 <div class="beer-slider" data-beer-label="">
                     
-                    <!-- AFTER IMAGE -->
+                   
                     <img src="images/gallery/24.jpg" alt="Roof After Repair">
 
-                    <!-- BEFORE IMAGE -->
+                  
                     <div class="beer-reveal" data-beer-label="">
                         <img src="images/gallery/before24.jpg" alt="Roof Before Repair">
                     </div>
 
                 </div>
 
-                <!-- Overlay Content -->
+            
                 <div class="overlay-box">
                     <div class="content">
                         <div class="title">ROOF REPAIR</div>
@@ -668,7 +818,7 @@
                     </div>
                 </div>
 
-                <!-- Optional Buttons -->
+                
                 <div class="before-after-buttons">
                     <button class="btn-before">Before</button>
                     <button class="btn-after">After</button>
@@ -682,7 +832,7 @@
 
         </div>
     </div>
-</section>
+</section>-->
 <br><br>
 	<!-- Main Footer -->
     <footer class="main-footer">
@@ -852,119 +1002,143 @@
 <!-- Custom Scripts -->
 <script src="js/script.js"></script>
 <script src="js/color-settings.js"></script>
+
+<script src="js/jquery.magnific-popup.min.js"></script>
+
 <script>
-$(window).on('load', function () {
-
-  /* =====================================
-     PROJECT CAROUSEL – ARROWS ONLY
-  ===================================== */
-  const $carousel = $('.three-item-carousel');
-
-  if (!$carousel.hasClass('owl-loaded')) {
-    $carousel.owlCarousel({
-      loop: true,
-      margin: 30,
-      nav: true,
-      dots: false,
-
-      autoplay: false,
-
-      mouseDrag: false,
-      touchDrag: false,
-      pullDrag: false,
-      freeDrag: false,
-
-      smartSpeed: 700,
-
-      responsive: {
-        0: { items: 1 },
-        600: { items: 2 },
-        1000: { items: 3 }
+$(document).ready(function () {
+  $('.video-lightbox').magnificPopup({
+    type: 'inline',
+    midClick: true,
+    closeBtnInside: true,
+    items: {
+      src:
+        '<div class="mfp-video-wrapper">'+
+          '<video controls playsinline>'+
+            '<source src="" type="video/mp4">'+
+          '</video>'+
+        '</div>'
+    },
+    callbacks: {
+      open: function () {
+        var src = this.st.el.attr('href');
+        var video = this.content.find('video')[0];
+        this.content.find('source').attr('src', src);
+        video.load();
+      },
+      close: function () {
+        var video = this.content.find('video')[0];
+        video.pause();
+        video.currentTime = 0;
       }
-    });
-  }
-
-  /* HARD STOP autoplay */
-  $carousel.trigger('stop.owl.autoplay');
-  const owl = $carousel.data('owl.carousel');
-  if (owl) {
-    owl.settings.autoplay = false;
-    owl.options.autoplay = false;
-  }
-
-  /* =====================================
-     BEERSLIDER – BUTTONS ONLY
-  ===================================== */
+    }
+  });
+});
+</script>
+<script>
+window.addEventListener("load", function () {
   document.querySelectorAll('.beer-slider-wrapper').forEach(wrapper => {
-
     const slider = wrapper.querySelector('.beer-slider');
     const reveal = slider.querySelector('.beer-reveal');
+    const btnBefore = wrapper.querySelector('.before-btn');
+    const btnAfter = wrapper.querySelector('.after-btn');
 
-    /* Init BeerSlider */
-    new BeerSlider(slider, { start: 50 });
+    if (!slider || !reveal) return;
 
-    /* Disable ALL interaction on slider */
-    slider.style.pointerEvents = 'none';
-
-    /* Smooth animation */
-    reveal.style.transition = 'width 0.8s ease';
-    reveal.style.width = '50%';
-
-    const btnBefore = wrapper.querySelector('.btn-before');
-    const btnAfter  = wrapper.querySelector('.btn-after');
-
-    btnBefore.addEventListener('click', function (e) {
-      e.preventDefault();
-      e.stopPropagation();
-      reveal.style.width = '100%';
+    // Initialize BeerSlider after images load
+    const imgs = slider.querySelectorAll('img');
+    let loaded = 0;
+    imgs.forEach(img => {
+      if (img.complete) loaded++;
+      else img.onload = () => { loaded++; if (loaded === imgs.length) new BeerSlider(slider, { start: 50 }); }
     });
+    if (loaded === imgs.length) new BeerSlider(slider, { start: 50 });
 
-    btnAfter.addEventListener('click', function (e) {
-      e.preventDefault();
-      e.stopPropagation();
+    // Smooth transition for mobile
+    reveal.style.transition = 'width 0.5s ease';
+
+    // Buttons fix for iOS
+    btnBefore.addEventListener('click', () => {
       reveal.style.width = '0%';
+      setTimeout(() => { new BeerSlider(slider, { start: 0 }); }, 50); // force update
+    });
+    btnAfter.addEventListener('click', () => {
+      reveal.style.width = '100%';
+      setTimeout(() => { new BeerSlider(slider, { start: 100 }); }, 50); // force update
     });
   });
-
 });
 
-/* =====================================
-   HARD BLOCK TOUCH / DRAG EVENTS
-===================================== */
-document.querySelectorAll('.project-section-five').forEach(section => {
 
-  /* Touch */
-  section.addEventListener('touchstart', e => e.preventDefault(), { passive: false });
-  section.addEventListener('touchmove',  e => e.preventDefault(), { passive: false });
-  section.addEventListener('touchend',   e => e.preventDefault(), { passive: false });
-
-  /* Mouse drag */
-  section.addEventListener('mousedown', e => e.preventDefault());
-  section.addEventListener('mousemove', e => e.preventDefault());
-
+document.querySelectorAll('.juxtapose').forEach(slider => {
+  slider.addEventListener('click', e => {
+    // Optional: smooth transition to click point
+    const rect = slider.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const percent = (x / rect.width) * 100;
+    slider.querySelector('.jx-slider-handle').style.left = percent + '%';
+    slider.querySelector('.jx-slider-mask').style.width = percent + '%';
+  });
 });
-
-/* =====================================
-   REMOVE OVERLAYS & HOVER EFFECTS
-===================================== */
-document.querySelectorAll('.project-section-five .overlay-box').forEach(el => {
-  el.style.display = 'none';
+// Disable mouse auto movement
+document.querySelectorAll('.juxtapose').forEach(function(slider) {
+  // Remove mousemove listener added by Juxtapose
+  slider.onmousemove = null;
+  slider.ontouchmove = null;
 });
+</script>
+<script src="https://cdn.knightlab.com/libs/juxtapose/latest/js/juxtapose.min.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const sliders = document.querySelectorAll(".juxtapose");
 
-document.querySelectorAll('.project-section-five').forEach(section => {
-  section.addEventListener('touchstart', e => e.preventDefault(), { passive: false });
-  section.addEventListener('touchmove',  e => e.preventDefault(), { passive: false });
-});
-document.querySelectorAll('.project-section-five').forEach(section => {
-  section.addEventListener('touchstart', e => e.preventDefault(), { passive: false });
-  section.addEventListener('touchmove',  e => e.preventDefault(), { passive: false });
-});
+  sliders.forEach(slider => {
+    // Initialize each slider
+    const images = slider.querySelectorAll("img");
+    if (images.length < 2) return;
 
+    new juxtapose.JXSlider(slider, {
+      startingPosition: "50%",
+      showLabels: true,
+      showCredits: false,
+      animate: false // IMPORTANT: stop auto animation
+    });
+
+    // Remove Juxtapose internal mousemove/touchmove
+    slider.onmousemove = null;
+    slider.ontouchmove = null;
+
+    const handle = slider.querySelector(".jx-slider-handle");
+    const mask = slider.querySelector(".jx-slider-mask");
+
+    // Click anywhere on the slider to move handle
+    slider.addEventListener('click', e => {
+      const rect = slider.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const percent = (x / rect.width) * 100;
+      handle.style.left = percent + '%';
+      mask.style.width = percent + '%';
+    });
+
+    // Before/After buttons
+    const beforeBtn = slider.closest(".image").querySelector(".before-btn");
+    const afterBtn = slider.closest(".image").querySelector(".after-btn");
+
+    beforeBtn?.addEventListener("click", () => {
+      handle.style.left = "0%";
+      mask.style.width = "0%";
+    });
+
+    afterBtn?.addEventListener("click", () => {
+      handle.style.left = "100%";
+      mask.style.width = "100%";
+    });
+  });
+});
 </script>
 
 
-<!--[if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script><![endif]-->
-<!--[if lt IE 9]><script src="js/respond.js"></script><![endif]-->
 
+<script src="https://cdn.knightlab.com/libs/juxtapose/latest/js/juxtapose.min.js"></script>
 </body>
 </html>
