@@ -11332,3 +11332,18 @@
 .juxtapose .jx-slider-mask img {
   image-rendering: auto !important;
 }
+
+.view-detail::after {
+    content: none !important;
+}
+/* Remove hover color for view-detail button */
+.view-detail,
+.view-detail:hover,
+.view-detail:focus,
+.view-detail:active {
+    background-color: transparent !important; /* keep original background */
+    color: inherit !important;               /* keep original text color */
+    box-shadow: none !important;             /* remove shadow */
+    transform: none !important;              /* prevent scaling */
+    filter: none !important;                 /* remove brightness/opacity */
+}
