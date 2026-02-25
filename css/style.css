@@ -11385,3 +11385,10 @@
   background-color: #9E9E9E;
   color: #fff;
 }
+.about-section .content-column,
+.about-section .video-column {
+    float: none !important;       /* prevent columns from floating over each other */
+    position: relative !important; /* keep text in normal flow */
+    width: 50% !important;        /* both columns stay side by side */
+    z-index: auto !important;     /* prevent overlay */
+}
