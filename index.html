@@ -377,39 +377,54 @@
 						
 						<!-- Default Form -->
 						<form method="post" action="contact.html">
-							<div class="row clearfix">
-								
-								<div class="col-lg-6 col-md-6 col-sm-12 form-group">
-									<input type="text" name="username" placeholder="Enter Your Name" required>
-								</div>
-								
-								<div class="col-lg-6 col-md-6 col-sm-12 form-group">
-									<input type="text" name="city" placeholder="City Name" required>
-								</div>
-								
-								<div class="col-lg-6 col-md-6 col-sm-12 form-group">
-									<input type="email" name="email" placeholder="Mail Address" required>
-								</div>
-								
-								<div class="col-lg-6 col-md-6 col-sm-12 form-group">
-									<input type="text" name="phone" placeholder="Phone number" required>
-								</div>
-								
-								<div class="col-lg-12 col-md-12 col-sm-12 form-group">
-									<textarea class="" name="message" placeholder="Type Your Massage"></textarea>
-								</div>
-								
-								<div class="col-lg-12 col-md-12 col-sm-12 form-group">
-									<button class="theme-btn btn-style-two">
-										<span class="btn-wrap">
-											<span class="text-one">Submit Now</span>
-											<span class="text-two">Submit Now</span>
-										</span>
-									</button>
-								</div>
-								
-							</div>
-						</form>
+    <div class="row clearfix">
+        
+        <div class="col-lg-6 col-md-6 col-sm-12 form-group">
+            <input type="text" name="username" placeholder="Enter Your Name" required>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-12 form-group">
+            <input type="email" name="email" placeholder="Enter Your Email" required>
+        </div>
+        
+        <div class="col-lg-6 col-md-6 col-sm-12 form-group">
+            <input type="text" name="address" placeholder="Enter Your Address" required>
+        </div>
+        
+        <div class="col-lg-6 col-md-6 col-sm-12 form-group">
+            <input type="text" name="phone" placeholder="Enter Your Phone number" required>
+        </div>
+        
+        <!-- New Choose Type Dropdown -->
+        <div class="col-lg-12 col-md-12 col-sm-12 form-group">
+           <select name="inquiry_type" id="inquiry_type" class="custom-select" required>
+    <option value="" disabled selected hidden>-- Type of work --</option>
+    <option value="roof repairs">Roof repairs</option>
+    <option value="full replacements">Full replacements</option>
+    <option value="new builds">New buildss</option>
+	 <option value="partnership">Restorations</option>
+    <!--<option value="feedback">Feedback</option>
+   
+    <option value="careers">Careers</option>
+    <option value="billing">Billing</option>
+    <option value="other">Other</option>-->
+</select>
+        </div>
+        
+        <div class="col-lg-12 col-md-12 col-sm-12 form-group">
+            <textarea name="message" placeholder="Type Your Message"></textarea>
+        </div>
+        
+        <div class="col-lg-12 col-md-12 col-sm-12 form-group">
+            <button class="theme-btn btn-style-two">
+                <span class="btn-wrap">
+                    <span class="text-one">Submit Now</span>
+                    <span class="text-two">Submit Now</span>
+                </span>
+            </button>
+        </div>
+        
+    </div>
+</form>
 							
 					</div>
 					<!-- End Default Form -->
@@ -1003,6 +1018,29 @@ document.addEventListener("DOMContentLoaded", function() {
       mask.style.width = "100%";
     });
   });
+});
+
+
+const dropdown = document.querySelector('.custom-dropdown');
+const selected = dropdown.querySelector('.selected');
+const optionsContainer = dropdown.querySelector('.options');
+const optionsList = optionsContainer.querySelectorAll('div');
+
+selected.addEventListener('click', () => {
+  optionsContainer.style.display = optionsContainer.style.display === 'block' ? 'none' : 'block';
+});
+
+optionsList.forEach(option => {
+  option.addEventListener('click', () => {
+    selected.textContent = option.textContent;
+    optionsContainer.style.display = 'none';
+  });
+});
+
+document.addEventListener('click', e => {
+  if (!dropdown.contains(e.target)) {
+    optionsContainer.style.display = 'none';
+  }
 });
 </script>
 

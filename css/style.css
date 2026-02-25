@@ -11347,3 +11347,41 @@
     transform: none !important;              /* prevent scaling */
     filter: none !important;                 /* remove brightness/opacity */
 }
+.custom-dropdown {
+  position: relative;
+  width: 100%;
+  font-family: sans-serif;
+}
+
+.selected {
+  padding: 10px;
+  border: 1px solid #ccc;
+  cursor: pointer;
+  color: #9E9E9E;
+  border-radius: 4px;
+}
+
+.options {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  border: 1px solid #ccc;
+  border-top: none;
+  background: #fff;
+  max-height: 200px;
+  overflow-y: auto;
+  z-index: 10;
+}
+
+.options div {
+  padding: 10px;
+  cursor: pointer;
+  color: #9E9E9E;
+}
+
+.options div:hover {
+  background-color: #9E9E9E;
+  color: #fff;
+}
