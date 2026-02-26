@@ -11361,19 +11361,6 @@
   border-radius: 4px;
 }
 
-.options {
-  display: none;
-  position: absolute;
-  top: 100%;
-  left: 0;
-  right: 0;
-  border: 1px solid #ccc;
-  border-top: none;
-  background: #fff;
-  max-height: 200px;
-  overflow-y: auto;
-  z-index: 10;
-}
 
 .options div {
   padding: 10px;
