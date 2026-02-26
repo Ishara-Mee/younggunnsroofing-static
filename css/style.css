@@ -2462,7 +2462,7 @@
 .default-form.style-two .form-group input[type="email"],
 .default-form.style-two .form-group select{
 	border-width:1px;
-	color: #808080;;
+	color: var(--color-two);
 	font-size:var(--font-15);
 	background-color:var(--color-three);
 	font-family:var(--font-family-Roboto);
