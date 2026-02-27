@@ -376,7 +376,7 @@
 					<div class="default-form style-two">
 						
 						<!-- Default Form -->
-						<form method="post" action="contact.html">
+						<form method="post" action="contact.html" enctype="multipart/form-data">
     <div class="row clearfix">
         
         <div class="col-lg-6 col-md-6 col-sm-12 form-group" >
@@ -411,12 +411,15 @@
         </div>
         <!-- File Upload Field -->
 <div class="col-lg-12 col-md-12 col-sm-12 form-group">
-    <input 
-        type="file" 
-        name="attachment"
-        style="width: 100%; height: 55px; padding: 15px 25px; border: 1px solid #e5e5e5; background-color: var(--color-three); font-family: var(--font-family-Roboto); font-size: 15px; color: #808080;"
-    >
-</div>
+        <label for="attachments">Upload Files</label>
+        <input 
+            type="file" 
+            id="attachments"
+            multiple
+            accept=".png,.jpg,.jpeg,.pdf"
+            style="width: 100%; height: 55px; padding: 15px 25px; border: 1px solid #e5e5e5; background-color: var(--color-three); font-family: var(--font-family-Roboto); font-size: 15px; color: #808080;"
+        >
+    </div>
         <div class="col-lg-12 col-md-12 col-sm-12 form-group">
             <textarea name="message" placeholder="Type Your Message"></textarea>
         </div>
@@ -1056,6 +1059,29 @@ document.addEventListener('click', e => {
   if (!dropdown.contains(e.target)) {
     optionsContainer.style.display = 'none';
   }
+});
+</script>
+
+<script>
+const input = document.getElementById('attachments');
+const fileList = document.getElementById('file-list');
+const storedFiles = new DataTransfer();
+
+input.addEventListener('change', () => {
+    // Add new files to storedFiles
+    for (const file of input.files) {
+        storedFiles.items.add(file);
+    }
+    // Update the input to include all files
+    input.files = storedFiles.files;
+
+    // Show preview
+    fileList.innerHTML = '';
+    Array.from(storedFiles.files).forEach((file, index) => {
+        const li = document.createElement('li');
+        li.textContent = file.name;
+        fileList.appendChild(li);
+    });
 });
 </script>
 
