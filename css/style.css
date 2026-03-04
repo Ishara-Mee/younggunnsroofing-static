@@ -11387,3 +11387,6 @@
     font-size: 16px;   /* adjust size as needed */
     font-weight: 500;  /* optional: makes it lighter */
 }
+.text a {
+    text-transform: none;
+}
