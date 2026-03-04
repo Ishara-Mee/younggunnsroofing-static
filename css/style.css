@@ -11390,3 +11390,20 @@
 .text a {
     text-transform: none;
 }
+.clients-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 80px;   /* space between logos */
+    flex-wrap: wrap;
+}
+
+.client-logo img {
+    max-width: 200px;
+    opacity: 0.9;
+    transition: 0.3s ease;
+}
+
+.client-logo img:hover {
+    opacity: 1;
+}
