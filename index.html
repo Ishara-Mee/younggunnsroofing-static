@@ -345,7 +345,7 @@
         <img class="transition-500ms" src="images/resource/younggunns-roofing-home-hero-video.jpg" alt="">
     </figure>
 
-    <!-- Desktop popup (no change) -->
+    <!-- Desktop popup (keep as-is) -->
     <a href="https://aog-cms-videos.s3.ap-southeast-2.amazonaws.com/young-gunns-video/Young+Gunns+Showcase+V2.mp4" 
        class="video-popup overlay-box d-none d-md-block">
         <span class="flaticon-media-play-symbol transition-900ms">
@@ -353,20 +353,19 @@
         </span>
     </a>
 
-    <!-- Mobile video (hidden initially) -->
+    <!-- Mobile video (hidden by default) -->
     <video id="mobile-video" controls style="display:none; width:100%; max-width:600px;">
         <source src="https://aog-cms-videos.s3.ap-southeast-2.amazonaws.com/young-gunns-video/Young+Gunns+Showcase+V2.mp4" type="video/mp4">
         Your browser does not support the video tag.
     </video>
 
-    <!-- Mobile play button -->
+    <!-- Mobile play button (visible only on mobile) -->
     <a href="#" class="overlay-box d-block d-md-none" id="mobile-play-btn">
         <span class="flaticon-media-play-symbol transition-900ms">
             <i class="ripple"></i>
         </span>
     </a>
 </div>
-
 						</div>
 						
 					</div>
@@ -1085,20 +1084,35 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
+// Mobile-only video play
+document.addEventListener('DOMContentLoaded', function() {
+    // Detect mobile
+    if (/Mobi|Android/i.test(navigator.userAgent)) {
+        const mobileBtn = document.getElementById('mobile-play-btn');
+        const mobileVideo = document.getElementById('mobile-video');
 
+        mobileBtn.addEventListener('click', function(e){
+            e.preventDefault();
 
-</script>
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-  var links = document.querySelectorAll(".video-popup");
+            // Show video
+            mobileVideo.style.display = 'block';
 
-  links.forEach(function(link) {
-    link.addEventListener("touchstart", function(e) {
-      window.location.href = this.href;
-    });
-  });
+            // Play video (direct user interaction)
+            mobileVideo.play().catch(err => {
+                console.log("Mobile requires direct touch to play video");
+            });
+
+            // Fullscreen for mobile
+            if (mobileVideo.requestFullscreen) mobileVideo.requestFullscreen();
+            else if (mobileVideo.webkitEnterFullscreen) mobileVideo.webkitEnterFullscreen();
+        });
+    }
 });
+
+
+
 </script>
+
 <!-- Include jQuery & Magnific Popup JS -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
