@@ -334,11 +334,12 @@
 								</div>
 								<!-- Video Box -->
 								<div class="video-box style-three">
-									<figure class="video-image">
-										<img class="transition-500ms" src="images/resource/video-image-4.jpg" alt="">
-									</figure>
-									<a href="https://www.youtube.com/watch?v=kxPCFljwJws" class="lightbox-image overlay-box"><span class="flaticon-media-play-symbol transition-900ms"><i class="ripple"></i></span></a>
-								</div>
+    <video width="100%" controls poster="images/resource/video-image-4.jpg">
+        <source src="https://aog-cms-videos.s3-ap-southeast-2.amazonaws.com/young-gunns-video/Young+Gunns+Showcase+V2.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+</div>
+
 							</div>
 						</div>
 						
@@ -1093,6 +1094,11 @@ input.addEventListener('change', () => {
         fileList.appendChild(li);
     });
 });
+
+$('.video-popup').magnificPopup({
+    type: 'video'
+});
+
 </script>
 
 

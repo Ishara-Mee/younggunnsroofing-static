@@ -11407,3 +11407,35 @@
 .client-logo img:hover {
     opacity: 1;
 }
+
+.video-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 800px;  /* Limit how big the video can get */
+  margin: auto;
+  overflow: hidden;
+}
+
+.video-wrapper video {
+  width: 100%;      /* Responsive width */
+  height: auto;     /* Maintain aspect ratio */
+  display: block;
+  border-radius: 10px; /* optional */
+}
+
+.play-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 80px;
+  color: white;
+  cursor: pointer;
+  opacity: 0.8;
+  z-index: 10;
+  text-shadow: 2px 2px 10px rgba(0,0,0,0.7);
+}
+
+.play-button:hover {
+  opacity: 1;
+}
