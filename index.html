@@ -345,7 +345,7 @@
         <img class="transition-500ms" src="images/resource/younggunns-roofing-home-hero-video.jpg" alt="">
     </figure>
 
-    <!-- Popup for all devices -->
+    <!-- Desktop & Mobile Popup -->
     <a href="https://aog-cms-videos.s3.ap-southeast-2.amazonaws.com/young-gunns-video/Young+Gunns+Showcase+V2.mp4" 
        class="video-popup overlay-box">
         <span class="flaticon-media-play-symbol transition-900ms">
@@ -1099,6 +1099,65 @@ $(document).ready(function() {
         fixedContentPos: false
     });
 });
+
+
+
+</script>
+
+
+
+<script>
+if (/Mobi|Android/i.test(navigator.userAgent)) {  // Detect mobile
+    document.querySelectorAll('.video-box.style-three').forEach(function(box){
+        // Create mobile play button
+        const mobileBtn = document.createElement('a');
+        mobileBtn.href = "#";
+        mobileBtn.className = "video-popup overlay-box d-block d-md-none"; // visible only on mobile
+        mobileBtn.innerHTML = '<span class="flaticon-media-play-symbol transition-900ms"><i class="ripple"></i></span>';
+
+        box.appendChild(mobileBtn);
+
+        mobileBtn.addEventListener('click', function(e){
+            e.preventDefault();
+
+            // Create video element
+            const video = document.createElement('video');
+            video.src = "https://aog-cms-videos.s3.ap-southeast-2.amazonaws.com/young-gunns-video/Young+Gunns+Showcase+V2.mp4";
+            video.controls = true;
+            video.autoplay = true;
+            video.style.width = '100%';
+            video.style.maxWidth = '600px';
+            video.style.display = 'block';
+
+            // Overlay
+            const overlay = document.createElement('div');
+            overlay.style.position = 'fixed';
+            overlay.style.top = '0';
+            overlay.style.left = '0';
+            overlay.style.width = '100%';
+            overlay.style.height = '100%';
+            overlay.style.background = 'rgba(0,0,0,0.8)';
+            overlay.style.display = 'flex';
+            overlay.style.justifyContent = 'center';
+            overlay.style.alignItems = 'center';
+            overlay.style.zIndex = '9999';
+
+            overlay.addEventListener('click', function(e){
+                if(e.target === overlay){
+                    video.pause();
+                    document.body.removeChild(overlay);
+                }
+            });
+
+            overlay.appendChild(video);
+            document.body.appendChild(overlay);
+
+            // Fullscreen for mobile
+            if (video.requestFullscreen) video.requestFullscreen();
+            else if (video.webkitEnterFullscreen) video.webkitEnterFullscreen();
+        });
+    });
+}
 </script>
 
 
