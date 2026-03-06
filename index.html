@@ -1064,7 +1064,17 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
+
+
+document.querySelectorAll('.video-popup').forEach(function(el){
+  el.addEventListener('click', function(e){
+    if(window.innerWidth < 768){
+      window.location.href = this.href;
+    }
+  });
+});
 </script>
+
 
 <script src="https://cdn.knightlab.com/libs/juxtapose/latest/js/juxtapose.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script>
