@@ -19,6 +19,7 @@
 <!-- Juxtapose Slider CSS -->
 <link rel="stylesheet" href="https://cdn.knightlab.com/libs/juxtapose/latest/css/juxtapose.css">
 
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" />
 
 <!-- Color Switcher Mockup -->
 <link href="css/color-switcher-design.css" rel="stylesheet">
@@ -333,13 +334,18 @@
 									<img src="images/main-slider/yonggunns-roofing-home-main-slider1.jpg" alt="" />
 								</div>
 								<!-- Video Box -->
-								<div class="video-box style-three">
-    <video width="100%" controls poster="images/resource/video-image-4.jpg">
-        <source src="https://aog-cms-videos.s3-ap-southeast-2.amazonaws.com/young-gunns-video/Young+Gunns+Showcase+V2.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-    </video>
+							
+<!-- VIDEO BOX -->
+<div class="video-box style-three">
+    <figure class="video-image">
+        <img class="transition-500ms" src="images/resource/video-image-4.jpg" alt="">
+    </figure>
+    <a href="https://aog-cms-videos.s3.ap-southeast-2.amazonaws.com/young-gunns-video/Young+Gunns+Showcase+V2.mp4" class="video-popup overlay-box">
+        <span class="flaticon-media-play-symbol transition-900ms">
+            <i class="ripple"></i>
+        </span>
+    </a>
 </div>
-
 							</div>
 						</div>
 						
@@ -911,13 +917,14 @@ Roofing when a team designed and assembled a brand new structure, combining mate
 <!-- scrollToTop end -->
 
 <!-- jQuery (only one copy) -->
+<<!-- jQuery -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 <!-- Popper & Bootstrap -->
 <script src="js/popper.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
 
-<!-- Plugins -->
+<!-- Plugins (no duplicates) -->
 <script src="js/magnific-popup.min.js"></script>
 <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
 <script src="js/appear.js"></script>
@@ -936,173 +943,129 @@ Roofing when a team designed and assembled a brand new structure, combining mate
 <!-- BeerSlider -->
 <script src="https://unpkg.com/beerslider/dist/BeerSlider.js"></script>
 
+<!-- Juxtapose -->
+<script src="https://cdn.knightlab.com/libs/juxtapose/latest/js/juxtapose.min.js"></script>
+
 <!-- Custom Scripts -->
 <script src="js/script.js"></script>
 <script src="js/color-settings.js"></script>
 
-<script src="js/jquery.magnific-popup.min.js"></script>
-
 <script>
-$(document).ready(function () {
-  $('.video-lightbox').magnificPopup({
-    type: 'inline',
-    midClick: true,
-    closeBtnInside: true,
-    items: {
-      src:
-        '<div class="mfp-video-wrapper">'+
-          '<video controls playsinline>'+
-            '<source src="" type="video/mp4">'+
-          '</video>'+
-        '</div>'
-    },
-    callbacks: {
-      open: function () {
-        var src = this.st.el.attr('href');
-        var video = this.content.find('video')[0];
-        this.content.find('source').attr('src', src);
-        video.load();
-      },
-      close: function () {
-        var video = this.content.find('video')[0];
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    const playBtn = document.getElementById('playVideoBtn');
+    const modal = document.getElementById('videoModal');
+    const closeBtn = document.getElementById('closeModal');
+
+    playBtn.addEventListener('click', function() {
+        modal.style.display = 'flex';
+        // Do NOT call video.play(); let user click native play button
+    });
+
+    closeBtn.addEventListener('click', function() {
+        const video = document.getElementById('modalVideo');
         video.pause();
         video.currentTime = 0;
-      }
+        modal.style.display = 'none';
+    });
+
+    modal.addEventListener('click', function(e) {
+        if(e.target === modal){
+            const video = document.getElementById('modalVideo');
+            video.pause();
+            video.currentTime = 0;
+            modal.style.display = 'none';
+        }
+    });
+});
+
+
+    // =========================
+    // BEERSLIDER
+    // =========================
+    document.querySelectorAll('.beer-slider-wrapper').forEach(wrapper => {
+        const slider = wrapper.querySelector('.beer-slider');
+        const reveal = slider.querySelector('.beer-reveal');
+        const btnBefore = wrapper.querySelector('.before-btn');
+        const btnAfter = wrapper.querySelector('.after-btn');
+        if(!slider || !reveal) return;
+
+        const imgs = slider.querySelectorAll('img');
+        let loaded = 0;
+        imgs.forEach(img => {
+            if(img.complete) loaded++;
+            else img.onload = () => { loaded++; if(loaded === imgs.length) new BeerSlider(slider,{start:50}); };
+        });
+        if(loaded === imgs.length) new BeerSlider(slider,{start:50});
+        reveal.style.transition = 'width 0.5s ease';
+
+        btnBefore.addEventListener('click', () => {
+            reveal.style.width = '0%';
+            setTimeout(()=>{ new BeerSlider(slider,{start:0}); },50);
+        });
+        btnAfter.addEventListener('click', () => {
+            reveal.style.width = '100%';
+            setTimeout(()=>{ new BeerSlider(slider,{start:100}); },50);
+        });
+    });
+
+    // =========================
+    // JUXTAPOSE SLIDERS
+    // =========================
+    document.querySelectorAll('.juxtapose').forEach(slider => {
+        const images = slider.querySelectorAll('img');
+        if(images.length < 2) return;
+
+        new juxtapose.JXSlider(slider, {
+            startingPosition: "50%",
+            showLabels: true,
+            showCredits: false,
+            animate: false
+        });
+
+        slider.onmousemove = null;
+        slider.ontouchmove = null;
+
+        const handle = slider.querySelector(".jx-slider-handle");
+        const mask = slider.querySelector(".jx-slider-mask");
+
+        slider.addEventListener('click', e => {
+            const rect = slider.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const percent = (x / rect.width) * 100;
+            handle.style.left = percent + '%';
+            mask.style.width = percent + '%';
+        });
+
+        const beforeBtn = slider.closest(".image")?.querySelector(".before-btn");
+        const afterBtn = slider.closest(".image")?.querySelector(".after-btn");
+        beforeBtn?.addEventListener('click', () => { handle.style.left="0%"; mask.style.width="0%"; });
+        afterBtn?.addEventListener('click', () => { handle.style.left="100%"; mask.style.width="100%"; });
+    });
+
+    // =========================
+    // ATTACHMENTS INPUT
+    // =========================
+    const input = document.getElementById('attachments');
+    const fileList = document.getElementById('file-list');
+    const storedFiles = new DataTransfer();
+
+    if(input){
+        input.addEventListener('change', () => {
+            for(const file of input.files) storedFiles.items.add(file);
+            input.files = storedFiles.files;
+            fileList.innerHTML = '';
+            Array.from(storedFiles.files).forEach(file => {
+                const li = document.createElement('li');
+                li.textContent = file.name;
+                fileList.appendChild(li);
+            });
+        });
     }
-  });
-});
-</script>
-<script>
-window.addEventListener("load", function () {
-  document.querySelectorAll('.beer-slider-wrapper').forEach(wrapper => {
-    const slider = wrapper.querySelector('.beer-slider');
-    const reveal = slider.querySelector('.beer-reveal');
-    const btnBefore = wrapper.querySelector('.before-btn');
-    const btnAfter = wrapper.querySelector('.after-btn');
-
-    if (!slider || !reveal) return;
-
-    // Initialize BeerSlider after images load
-    const imgs = slider.querySelectorAll('img');
-    let loaded = 0;
-    imgs.forEach(img => {
-      if (img.complete) loaded++;
-      else img.onload = () => { loaded++; if (loaded === imgs.length) new BeerSlider(slider, { start: 50 }); }
-    });
-    if (loaded === imgs.length) new BeerSlider(slider, { start: 50 });
-
-    // Smooth transition for mobile
-    reveal.style.transition = 'width 0.5s ease';
-
-    // Buttons fix for iOS
-    btnBefore.addEventListener('click', () => {
-      reveal.style.width = '0%';
-      setTimeout(() => { new BeerSlider(slider, { start: 0 }); }, 50); // force update
-    });
-    btnAfter.addEventListener('click', () => {
-      reveal.style.width = '100%';
-      setTimeout(() => { new BeerSlider(slider, { start: 100 }); }, 50); // force update
-    });
-  });
-});
-
-
-document.querySelectorAll('.juxtapose').forEach(slider => {
-  slider.addEventListener('click', e => {
-    // Optional: smooth transition to click point
-    const rect = slider.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const percent = (x / rect.width) * 100;
-    slider.querySelector('.jx-slider-handle').style.left = percent + '%';
-    slider.querySelector('.jx-slider-mask').style.width = percent + '%';
-  });
-});
-// Disable mouse auto movement
-document.querySelectorAll('.juxtapose').forEach(function(slider) {
-  // Remove mousemove listener added by Juxtapose
-  slider.onmousemove = null;
-  slider.ontouchmove = null;
 });
 </script>
 <script src="https://cdn.knightlab.com/libs/juxtapose/latest/js/juxtapose.min.js"></script>
-<script>
-document.addEventListener("DOMContentLoaded", function() {
-  const sliders = document.querySelectorAll(".juxtapose");
-
-  sliders.forEach(slider => {
-    // Initialize each slider
-    const images = slider.querySelectorAll("img");
-    if (images.length < 2) return;
-
-    new juxtapose.JXSlider(slider, {
-      startingPosition: "50%",
-      showLabels: true,
-      showCredits: false,
-      animate: false // IMPORTANT: stop auto animation
-    });
-
-    // Remove Juxtapose internal mousemove/touchmove
-    slider.onmousemove = null;
-    slider.ontouchmove = null;
-
-    const handle = slider.querySelector(".jx-slider-handle");
-    const mask = slider.querySelector(".jx-slider-mask");
-
-    // Click anywhere on the slider to move handle
-    slider.addEventListener('click', e => {
-      const rect = slider.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const percent = (x / rect.width) * 100;
-      handle.style.left = percent + '%';
-      mask.style.width = percent + '%';
-    });
-
-    // Before/After buttons
-    const beforeBtn = slider.closest(".image").querySelector(".before-btn");
-    const afterBtn = slider.closest(".image").querySelector(".after-btn");
-
-    beforeBtn?.addEventListener("click", () => {
-      handle.style.left = "0%";
-      mask.style.width = "0%";
-    });
-
-    afterBtn?.addEventListener("click", () => {
-      handle.style.left = "100%";
-      mask.style.width = "100%";
-    });
-  });
-});
-</script>
-<script>
-const input = document.getElementById('attachments');
-const fileList = document.getElementById('file-list');
-const storedFiles = new DataTransfer();
-
-input.addEventListener('change', () => {
-    // Add new files to storedFiles
-    for (const file of input.files) {
-        storedFiles.items.add(file);
-    }
-    // Update the input to include all files
-    input.files = storedFiles.files;
-
-    // Show preview
-    fileList.innerHTML = '';
-    Array.from(storedFiles.files).forEach((file, index) => {
-        const li = document.createElement('li');
-        li.textContent = file.name;
-        fileList.appendChild(li);
-    });
-});
-
-$('.video-popup').magnificPopup({
-    type: 'video'
-});
-
-</script>
-
-
-
-<script src="https://cdn.knightlab.com/libs/juxtapose/latest/js/juxtapose.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script>
 </body>
 </html>
