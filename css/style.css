@@ -11439,3 +11439,28 @@
 .play-button:hover {
   opacity: 1;
 }
+
+/* Ensure video box shows on mobile */
+
+@media only screen and (max-width: 767px){
+
+.image-column .inner-column{
+    display:flex;
+    flex-direction:column;
+}
+
+.image-column .image{
+    order:1;
+}
+
+.video-box{
+    order:2;
+    position:relative !important;
+    bottom:auto !important;
+    right:auto !important;
+    left:auto !important;
+    margin-top:20px;
+    display:block !important;
+}
+
+}
