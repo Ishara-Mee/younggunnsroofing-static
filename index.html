@@ -1107,20 +1107,18 @@ $(document).ready(function() {
 
 
 <script>
-if (/Mobi|Android/i.test(navigator.userAgent)) {  // Detect mobile
+if (/Mobi|Android/i.test(navigator.userAgent)) {  // Mobile check
     document.querySelectorAll('.video-box.style-three').forEach(function(box){
-        // Create mobile play button
+        // Mobile play button
         const mobileBtn = document.createElement('a');
         mobileBtn.href = "#";
-        mobileBtn.className = "video-popup overlay-box d-block d-md-none"; // visible only on mobile
+        mobileBtn.className = "video-popup overlay-box d-block d-md-none";
         mobileBtn.innerHTML = '<span class="flaticon-media-play-symbol transition-900ms"><i class="ripple"></i></span>';
-
         box.appendChild(mobileBtn);
 
         mobileBtn.addEventListener('click', function(e){
             e.preventDefault();
 
-            // Create video element
             const video = document.createElement('video');
             video.src = "https://aog-cms-videos.s3.ap-southeast-2.amazonaws.com/young-gunns-video/Young+Gunns+Showcase+V2.mp4";
             video.controls = true;
@@ -1129,7 +1127,6 @@ if (/Mobi|Android/i.test(navigator.userAgent)) {  // Detect mobile
             video.style.maxWidth = '600px';
             video.style.display = 'block';
 
-            // Overlay
             const overlay = document.createElement('div');
             overlay.style.position = 'fixed';
             overlay.style.top = '0';
@@ -1142,8 +1139,8 @@ if (/Mobi|Android/i.test(navigator.userAgent)) {  // Detect mobile
             overlay.style.alignItems = 'center';
             overlay.style.zIndex = '9999';
 
-            overlay.addEventListener('click', function(e){
-                if(e.target === overlay){
+            overlay.addEventListener('click', function(ev){
+                if(ev.target === overlay){
                     video.pause();
                     document.body.removeChild(overlay);
                 }
@@ -1152,7 +1149,6 @@ if (/Mobi|Android/i.test(navigator.userAgent)) {  // Detect mobile
             overlay.appendChild(video);
             document.body.appendChild(overlay);
 
-            // Fullscreen for mobile
             if (video.requestFullscreen) video.requestFullscreen();
             else if (video.webkitEnterFullscreen) video.webkitEnterFullscreen();
         });
