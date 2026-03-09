@@ -1014,6 +1014,27 @@ document.addEventListener('DOMContentLoaded', function() {
     /* =========================
        MOBILE VIDEO PLAY
     ========================= */
+
+document.addEventListener('DOMContentLoaded', function() {
+    const mobilePlayBtn = document.getElementById('mobile-play-btn');
+    const mobileVideo = document.getElementById('mobile-video');
+
+    if (mobilePlayBtn && mobileVideo) {
+        mobilePlayBtn.addEventListener('click', function() {
+            // Hide play button
+            mobilePlayBtn.style.display = 'none';
+
+            // Show video
+            mobileVideo.style.display = 'block';
+
+            // Play video
+            mobileVideo.play().catch(err => {
+                console.log('Autoplay prevented:', err);
+            });
+        });
+    }
+});
+</script>
    
     /* =========================
        BEERSLIDER
