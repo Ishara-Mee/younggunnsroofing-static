@@ -354,17 +354,19 @@
     </a>
 
     <!-- Mobile video (hidden by default) -->
-    <video id="mobile-video" controls playsinline webkit-playsinline style="width:100%; max-width:600px; display:none;">
-    <source src="https://aog-cms-videos.s3.ap-southeast-2.amazonaws.com/young-gunns-video/Young+Gunns+Showcase+V2.mp4" type="video/mp4">
-    Your browser does not support the video tag.
-</video>
+    <video id="mobile-video" controls playsinline webkit-playsinline 
+           style="width:100%; max-width:600px; display:none;">
+        <source src="https://aog-cms-videos.s3.ap-southeast-2.amazonaws.com/young-gunns-video/Young+Gunns+Showcase+V2.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
 
-<!-- Mobile play button -->
-<button id="mobile-play-btn" class="overlay-box d-block d-md-none" style="background:none; border:none; cursor:pointer;">
-    <span class="flaticon-media-play-symbol transition-900ms">
-        <i class="ripple"></i>
-    </span>
-</button>
+    <!-- Mobile play button -->
+    <button id="mobile-play-btn" class="overlay-box d-block d-md-none" 
+            style="background:none; border:none; cursor:pointer;">
+        <span class="flaticon-media-play-symbol transition-900ms">
+            <i class="ripple"></i>
+        </span>
+    </button>
 </div>
 						</div>
 						
@@ -1014,57 +1016,30 @@ document.addEventListener('DOMContentLoaded', function() {
     /* =========================
        MOBILE VIDEO PLAY
     ========================= */
+// Mobile play button click
+document.getElementById('mobile-play-btn').addEventListener('click', function() {
+    var video = document.getElementById('mobile-video');
 
-document.addEventListener('DOMContentLoaded', function() {
-    const mobilePlayBtn = document.getElementById('mobile-play-btn');
-    const mobileVideo = document.getElementById('mobile-video');
+    // Video show
+    video.style.display = 'block';
 
-    if (mobilePlayBtn && mobileVideo) {
-        mobilePlayBtn.addEventListener('click', function() {
-            // Hide play button
-            mobilePlayBtn.style.display = 'none';
-
-            // Show video
-            mobileVideo.style.display = 'block';
-
-            // Play video
-            mobileVideo.play().catch(err => {
-                console.log('Autoplay prevented:', err);
-            });
-        });
-    }
-});
-</script>
-   
-    /* =========================
-       BEERSLIDER
-    ========================= */
-    document.querySelectorAll('.beer-slider-wrapper').forEach(wrapper => {
-        const slider = wrapper.querySelector('.beer-slider');
-        const reveal = slider?.querySelector('.beer-reveal');
-        const btnBefore = wrapper.querySelector('.before-btn');
-        const btnAfter = wrapper.querySelector('.after-btn');
-        if(!slider || !reveal) return;
-
-        const imgs = slider.querySelectorAll('img');
-        let loaded = 0;
-        imgs.forEach(img => {
-            if(img.complete) loaded++;
-            else img.onload = () => { loaded++; if(loaded === imgs.length) new BeerSlider(slider,{start:50}); };
-        });
-        if(loaded === imgs.length) new BeerSlider(slider,{start:50});
-        reveal.style.transition = 'width 0.5s ease';
-
-        btnBefore?.addEventListener('click', () => {
-            reveal.style.width = '0%';
-            setTimeout(()=>{ new BeerSlider(slider,{start:0}); },50);
-        });
-        btnAfter?.addEventListener('click', () => {
-            reveal.style.width = '100%';
-            setTimeout(()=>{ new BeerSlider(slider,{start:100}); },50);
-        });
+    // Play video
+    video.play().catch(function(error) {
+        console.log("Video play failed:", error);
     });
 
+    // Hide play button
+    this.style.display = 'none';
+});
+
+// Optional: when video ends, show play button again
+document.getElementById('mobile-video').addEventListener('ended', function() {
+    document.getElementById('mobile-play-btn').style.display = 'block';
+    this.style.display = 'none';
+});
+   
+   
+   
     /* =========================
        JUXTAPOSE SLIDERS
     ========================= */
