@@ -11464,3 +11464,23 @@
 }
 
 }
+/* Remove any grayscale or dim effect */
+.project-block .image img {
+    filter: none !important;   /* removes grayscale or brightness filters */
+    opacity: 1 !important;     /* ensure full opacity */
+}
+
+/* Remove dark overlay */
+.project-block .overlay-box {
+    background: transparent !important; /* make overlay fully transparent */
+}
+
+/* Optional: remove content fade-in if not needed */
+.project-block .image:hover .overlay-box .content {
+    opacity: 0 !important; /* hide text on hover if you want clean image only */
+}
+.project-block .overlay-box .content {
+    background: rgba(0,0,0,0.5); /* semi-transparent black behind text */
+    padding: 10px 15px;
+    border-radius: 5px;
+}
