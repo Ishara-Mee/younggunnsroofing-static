@@ -1014,24 +1014,41 @@ document.addEventListener('DOMContentLoaded', function() {
     /* =========================
        MOBILE VIDEO PLAY
     ========================= */
-    const mobileBtn = document.getElementById('mobile-play-btn');
-    const mobileVideo = document.getElementById('mobile-video');
-    const mobileImage = document.querySelector('.video-image');
+    document.addEventListener("DOMContentLoaded", function () {
+    const btn = document.getElementById("mobile-play-btn");
+    const video = document.getElementById("mobile-video");
+    const image = document.querySelector(".video-image");
 
-    if(mobileBtn && mobileVideo){
-        mobileBtn.addEventListener('click', function(e){
+    if(btn && video && image){
+        btn.addEventListener("click", function(e){
             e.preventDefault();
-            mobileBtn.style.display = 'none';
-            if(mobileImage) mobileImage.style.display = 'none';
-            mobileVideo.style.display = 'block';
-            mobileVideo.play();
 
-            // Fullscreen support
-            if (mobileVideo.requestFullscreen) mobileVideo.requestFullscreen();
-            else if (mobileVideo.webkitEnterFullscreen) mobileVideo.webkitEnterFullscreen();
+            // Hide play button and image
+            btn.style.display = "none";
+            image.style.display = "none";
+
+            // Show video
+            video.style.display = "block";
+
+            // Play video (direct user click ensures mobile allows it)
+            const playPromise = video.play();
+            if(playPromise !== undefined){
+                playPromise
+                    .then(() => {
+                        // video playing
+                        console.log("Video started successfully");
+                        // request fullscreen after play
+                        if (video.requestFullscreen) video.requestFullscreen();
+                        else if (video.webkitEnterFullscreen) video.webkitEnterFullscreen();
+                    })
+                    .catch(error => {
+                        console.log("Video play failed:", error);
+                        alert("Tap video to start manually");
+                    });
+            }
         });
     }
-
+});
     /* =========================
        BEERSLIDER
     ========================= */
