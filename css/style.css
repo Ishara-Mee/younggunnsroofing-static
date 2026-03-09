@@ -11470,17 +11470,19 @@
     opacity: 1 !important;     /* ensure full opacity */
 }
 
-/* Remove dark overlay */
+/* Make overlay transparent but keep content visible */
 .project-block .overlay-box {
     background: transparent !important; /* make overlay fully transparent */
 }
 
-/* Optional: remove content fade-in if not needed */
+/* Ensure text content is visible on hover */
 .project-block .image:hover .overlay-box .content {
-    opacity: 0 !important; /* hide text on hover if you want clean image only */
+    opacity: 1 !important; /* keep text visible */
 }
+
 .project-block .overlay-box .content {
     background: rgba(0,0,0,0.5); /* semi-transparent black behind text */
     padding: 10px 15px;
     border-radius: 5px;
+    color: #fff; /* ensure text color is visible */
 }
