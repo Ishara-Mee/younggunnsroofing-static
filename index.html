@@ -346,19 +346,20 @@
         <img class="transition-500ms" src="images/resource/younggunns-roofing-home-hero-video.jpg" alt="Young Gunns Roofing Video">
     </figure>
 
-    <!-- Desktop & Mobile Popup Link -->
-    <a href="https://aog-cms-videos.s3.ap-southeast-2.amazonaws.com/young-gunns-video/Young+Gunns+Showcase+V2.mp4"
-       class="video-popup overlay-box d-block">
+    <!-- Play button (desktop + mobile) -->
+    <a href="#video-popup-content" class="video-popup overlay-box d-block">
         <span class="flaticon-media-play-symbol transition-900ms">
             <i class="ripple"></i>
         </span>
     </a>
 
-    <!-- Fallback inline video for mobile if popup fails -->
-    <video class="mobile-video d-none" controls playsinline width="100%" poster="images/resource/younggunns-roofing-home-hero-video.jpg">
-        <source src="https://aog-cms-videos.s3.ap-southeast-2.amazonaws.com/young-gunns-video/Young+Gunns+Showcase+V2.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-    </video>
+    <!-- Hidden video for popup -->
+    <div id="video-popup-content" class="mfp-hide">
+        <video controls playsinline width="100%" poster="images/resource/younggunns-roofing-home-hero-video.jpg">
+            <source src="https://aog-cms-videos.s3.ap-southeast-2.amazonaws.com/young-gunns-video/Young+Gunns+Showcase+V2.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
 </div>
 						</div>
 						
@@ -1004,6 +1005,31 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
+
+
+
+    $(document).ready(function() {
+    $('.video-popup').magnificPopup({
+        type: 'inline',        // must be 'inline' for hidden divs
+        midClick: true,        // allow opening popup on middle-click
+        closeBtnInside: true,  // close button inside popup
+        callbacks: {
+            open: function() {
+                // autoplay video when popup opens
+                var video = this.content.find('video')[0];
+                if(video) video.play();
+            },
+            close: function() {
+                // stop video when popup closes
+                var video = this.content.find('video')[0];
+                if(video) {
+                    video.pause();
+                    video.currentTime = 0;
+                }
+            }
+        }
+    });
+});
 
     /* =========================
        MOBILE VIDEO PLAY
