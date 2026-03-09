@@ -341,20 +341,24 @@
 <!-- VIDEO BOX -->
 <!-- Hero Video Section -->
 <div class="video-box style-three">
+    <!-- Hero Image -->
     <figure class="video-image">
-        <img class="transition-500ms" src="images/resource/younggunns-roofing-home-hero-video.jpg" alt="">
+        <img class="transition-500ms" src="images/resource/younggunns-roofing-home-hero-video.jpg" alt="Young Gunns Roofing Video">
     </figure>
 
-    <!-- Desktop popup (keep as-is) -->
-    <a href="https://aog-cms-videos.s3.ap-southeast-2.amazonaws.com/young-gunns-video/Young+Gunns+Showcase+V2.mp4" 
-       class="video-popup overlay-box d-none d-md-block">
+    <!-- Desktop & Mobile Popup Link -->
+    <a href="https://aog-cms-videos.s3.ap-southeast-2.amazonaws.com/young-gunns-video/Young+Gunns+Showcase+V2.mp4"
+       class="video-popup overlay-box d-block">
         <span class="flaticon-media-play-symbol transition-900ms">
             <i class="ripple"></i>
         </span>
     </a>
 
-    <!-- Mobile video (hidden by default) -->
-    
+    <!-- Fallback inline video for mobile if popup fails -->
+    <video class="mobile-video d-none" controls playsinline width="100%" poster="images/resource/younggunns-roofing-home-hero-video.jpg">
+        <source src="https://aog-cms-videos.s3.ap-southeast-2.amazonaws.com/young-gunns-video/Young+Gunns+Showcase+V2.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
 </div>
 						</div>
 						
@@ -1004,39 +1008,7 @@ document.addEventListener('DOMContentLoaded', function() {
     /* =========================
        MOBILE VIDEO PLAY
     ========================= */
-    document.addEventListener("DOMContentLoaded", function () {
-    const btn = document.getElementById("mobile-play-btn");
-    const video = document.getElementById("mobile-video");
-    const image = document.querySelector(".video-image");
-
-    if (btn && video) {
-        btn.addEventListener("click", function (e) {
-            e.preventDefault(); // Prevent page jump
-            e.stopPropagation(); // Stop other click handlers
-
-            // Hide the play button overlay
-            btn.style.display = "none";
-
-            // Optionally hide the poster image if you have one
-            if(image) image.style.display = "none";
-
-            // Show and play the video
-            video.style.display = "block";
-            video.setAttribute("playsinline", "");  // Ensure inline play on iOS
-            video.setAttribute("webkit-playsinline", ""); // iOS compatibility
-
-            const playPromise = video.play();
-            if (playPromise !== undefined) {
-                playPromise
-                    .then(() => console.log("Video started successfully"))
-                    .catch(error => {
-                        console.log("Video play failed:", error);
-                        alert("Tap the video to start manually");
-                    });
-            }
-        });
-    }
-});
+   
     /* =========================
        BEERSLIDER
     ========================= */
