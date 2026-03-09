@@ -1019,31 +1019,29 @@ document.addEventListener('DOMContentLoaded', function() {
     const video = document.getElementById("mobile-video");
     const image = document.querySelector(".video-image");
 
-    if(btn && video && image){
-        btn.addEventListener("click", function(e){
-            e.preventDefault();
+    if (btn && video) {
+        btn.addEventListener("click", function (e) {
+            e.preventDefault(); // Prevent page jump
+            e.stopPropagation(); // Stop other click handlers
 
-            // Hide play button and image
+            // Hide the play button overlay
             btn.style.display = "none";
-            image.style.display = "none";
 
-            // Show video
+            // Optionally hide the poster image if you have one
+            if(image) image.style.display = "none";
+
+            // Show and play the video
             video.style.display = "block";
+            video.setAttribute("playsinline", "");  // Ensure inline play on iOS
+            video.setAttribute("webkit-playsinline", ""); // iOS compatibility
 
-            // Play video (direct user click ensures mobile allows it)
             const playPromise = video.play();
-            if(playPromise !== undefined){
+            if (playPromise !== undefined) {
                 playPromise
-                    .then(() => {
-                        // video playing
-                        console.log("Video started successfully");
-                        // request fullscreen after play
-                        if (video.requestFullscreen) video.requestFullscreen();
-                        else if (video.webkitEnterFullscreen) video.webkitEnterFullscreen();
-                    })
+                    .then(() => console.log("Video started successfully"))
                     .catch(error => {
                         console.log("Video play failed:", error);
-                        alert("Tap video to start manually");
+                        alert("Tap the video to start manually");
                     });
             }
         });
