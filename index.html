@@ -1084,31 +1084,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
-// Mobile-only video play
-document.addEventListener('DOMContentLoaded', function() {
-    // Detect mobile
-    if (/Mobi|Android/i.test(navigator.userAgent)) {
-        const mobileBtn = document.getElementById('mobile-play-btn');
-        const mobileVideo = document.getElementById('mobile-video');
-
-        mobileBtn.addEventListener('click', function(e){
-            e.preventDefault();
-
-            // Show video
-            mobileVideo.style.display = 'block';
-
-            // Play video (direct user interaction)
-            mobileVideo.play().catch(err => {
-                console.log("Mobile requires direct touch to play video");
-            });
-
-            // Fullscreen for mobile
-            if (mobileVideo.requestFullscreen) mobileVideo.requestFullscreen();
-            else if (mobileVideo.webkitEnterFullscreen) mobileVideo.webkitEnterFullscreen();
-        });
-    }
-});
-
 
 
 </script>
@@ -1144,6 +1119,31 @@ document.getElementById('mobile-play-btn').addEventListener('click', function(e)
     // Request fullscreen (iOS/Android)
     if (video.requestFullscreen) video.requestFullscreen();
     else if (video.webkitEnterFullscreen) video.webkitEnterFullscreen();
+});
+</script>
+
+
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    var playBtn = document.getElementById("mobile-play-btn");
+    var video = document.getElementById("mobile-video");
+
+    playBtn.addEventListener("click", function(e) {
+        e.preventDefault();
+
+        // hide image and play button
+        playBtn.style.display = "none";
+        document.querySelector(".video-image").style.display = "none";
+
+        // show video
+        video.style.display = "block";
+
+        // play video
+        video.play();
+    });
+
 });
 </script>
 
