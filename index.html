@@ -937,13 +937,12 @@ Roofing when a team designed and assembled a brand new structure, combining mate
 
 <!-- jQuery (only one copy) -->
 <!-- jQuery -->
+<!-- =========================
+     PLUGINS & LIBRARIES
+========================= -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
-<!-- Popper & Bootstrap -->
 <script src="js/popper.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
-
-<!-- Plugins (no duplicates) -->
 <script src="js/magnific-popup.min.js"></script>
 <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
 <script src="js/appear.js"></script>
@@ -959,53 +958,86 @@ Roofing when a team designed and assembled a brand new structure, combining mate
 <script src="js/nav-tool.js"></script>
 <script src="js/jquery-ui.js"></script>
 
-<!-- BeerSlider -->
+<!-- BeerSlider & Juxtapose -->
 <script src="https://unpkg.com/beerslider/dist/BeerSlider.js"></script>
-
-<!-- Juxtapose -->
 <script src="https://cdn.knightlab.com/libs/juxtapose/latest/js/juxtapose.min.js"></script>
+
+<!-- Fancybox -->
+<script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script>
 
 <!-- Custom Scripts -->
 <script src="js/script.js"></script>
 <script src="js/color-settings.js"></script>
 
+<!-- =========================
+     FULL JS FOR VIDEO, SLIDERS, MOBILE, ATTACHMENTS
+========================= -->
 <script>
-
-
 document.addEventListener('DOMContentLoaded', function() {
+
+    /* =========================
+       DESKTOP VIDEO POPUP
+    ========================= */
+    if (typeof $ !== 'undefined' && $('.video-popup').length) {
+        $('.video-popup').magnificPopup({
+            type: 'iframe',
+            mainClass: 'mfp-fade',
+            preloader: true,
+            fixedContentPos: false
+        });
+    }
+
+    /* =========================
+       MODAL VIDEO
+    ========================= */
     const playBtn = document.getElementById('playVideoBtn');
     const modal = document.getElementById('videoModal');
     const closeBtn = document.getElementById('closeModal');
-
-    playBtn.addEventListener('click', function() {
-        modal.style.display = 'flex';
-        // Do NOT call video.play(); let user click native play button
-    });
-
-    closeBtn.addEventListener('click', function() {
-        const video = document.getElementById('modalVideo');
-        video.pause();
-        video.currentTime = 0;
-        modal.style.display = 'none';
-    });
-
-    modal.addEventListener('click', function(e) {
-        if(e.target === modal){
+    if(playBtn && modal && closeBtn){
+        playBtn.addEventListener('click', function() {
+            modal.style.display = 'flex';
+        });
+        closeBtn.addEventListener('click', function() {
             const video = document.getElementById('modalVideo');
-            video.pause();
-            video.currentTime = 0;
+            if(video){ video.pause(); video.currentTime = 0; }
             modal.style.display = 'none';
-        }
-    });
-});
+        });
+        modal.addEventListener('click', function(e) {
+            if(e.target === modal){
+                const video = document.getElementById('modalVideo');
+                if(video){ video.pause(); video.currentTime = 0; }
+                modal.style.display = 'none';
+            }
+        });
+    }
 
+    /* =========================
+       MOBILE VIDEO PLAY
+    ========================= */
+    const mobileBtn = document.getElementById('mobile-play-btn');
+    const mobileVideo = document.getElementById('mobile-video');
+    const mobileImage = document.querySelector('.video-image');
 
-    // =========================
-    // BEERSLIDER
-    // =========================
+    if(mobileBtn && mobileVideo){
+        mobileBtn.addEventListener('click', function(e){
+            e.preventDefault();
+            mobileBtn.style.display = 'none';
+            if(mobileImage) mobileImage.style.display = 'none';
+            mobileVideo.style.display = 'block';
+            mobileVideo.play();
+
+            // Fullscreen support
+            if (mobileVideo.requestFullscreen) mobileVideo.requestFullscreen();
+            else if (mobileVideo.webkitEnterFullscreen) mobileVideo.webkitEnterFullscreen();
+        });
+    }
+
+    /* =========================
+       BEERSLIDER
+    ========================= */
     document.querySelectorAll('.beer-slider-wrapper').forEach(wrapper => {
         const slider = wrapper.querySelector('.beer-slider');
-        const reveal = slider.querySelector('.beer-reveal');
+        const reveal = slider?.querySelector('.beer-reveal');
         const btnBefore = wrapper.querySelector('.before-btn');
         const btnAfter = wrapper.querySelector('.after-btn');
         if(!slider || !reveal) return;
@@ -1019,19 +1051,19 @@ document.addEventListener('DOMContentLoaded', function() {
         if(loaded === imgs.length) new BeerSlider(slider,{start:50});
         reveal.style.transition = 'width 0.5s ease';
 
-        btnBefore.addEventListener('click', () => {
+        btnBefore?.addEventListener('click', () => {
             reveal.style.width = '0%';
             setTimeout(()=>{ new BeerSlider(slider,{start:0}); },50);
         });
-        btnAfter.addEventListener('click', () => {
+        btnAfter?.addEventListener('click', () => {
             reveal.style.width = '100%';
             setTimeout(()=>{ new BeerSlider(slider,{start:100}); },50);
         });
     });
 
-    // =========================
-    // JUXTAPOSE SLIDERS
-    // =========================
+    /* =========================
+       JUXTAPOSE SLIDERS
+    ========================= */
     document.querySelectorAll('.juxtapose').forEach(slider => {
         const images = slider.querySelectorAll('img');
         if(images.length < 2) return;
@@ -1063,9 +1095,9 @@ document.addEventListener('DOMContentLoaded', function() {
         afterBtn?.addEventListener('click', () => { handle.style.left="100%"; mask.style.width="100%"; });
     });
 
-    // =========================
-    // ATTACHMENTS INPUT
-    // =========================
+    /* =========================
+       ATTACHMENTS INPUT
+    ========================= */
     const input = document.getElementById('attachments');
     const fileList = document.getElementById('file-list');
     const storedFiles = new DataTransfer();
@@ -1074,84 +1106,16 @@ document.addEventListener('DOMContentLoaded', function() {
         input.addEventListener('change', () => {
             for(const file of input.files) storedFiles.items.add(file);
             input.files = storedFiles.files;
-            fileList.innerHTML = '';
+            if(fileList) fileList.innerHTML = '';
             Array.from(storedFiles.files).forEach(file => {
                 const li = document.createElement('li');
                 li.textContent = file.name;
-                fileList.appendChild(li);
+                fileList?.appendChild(li);
             });
         });
     }
-});
-
-
-
-</script>
-
-<!-- Include jQuery & Magnific Popup JS -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
-<!--video popup not another page -->
-<script>
-$(document).ready(function() {
-    // Initialize desktop video popup
-    $('.video-popup').magnificPopup({
-        type: 'iframe',        // use iframe for mobile-friendly popup
-        mainClass: 'mfp-fade',
-        preloader: true,
-        fixedContentPos: false
-    });
-});
-
-
-
-</script>
-
-
-
-<script>
-document.getElementById('mobile-play-btn').addEventListener('click', function(e){
-    e.preventDefault();
-    const video = document.getElementById('mobile-video');
-    video.style.display = 'block';
-    video.play();
-    
-    // Request fullscreen (iOS/Android)
-    if (video.requestFullscreen) video.requestFullscreen();
-    else if (video.webkitEnterFullscreen) video.webkitEnterFullscreen();
-});
-</script>
-
-
-
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-
-    var btn = document.getElementById("mobile-play-btn");
-    var video = document.getElementById("mobile-video");
-    var image = document.querySelector(".video-image");
-
-    if(btn){
-        btn.addEventListener("click", function(e){
-            e.preventDefault();
-
-            // hide image and play button
-            btn.style.display = "none";
-            image.style.display = "none";
-
-            // show video
-            video.style.display = "block";
-
-            // play video
-            video.play();
-        });
-    }
 
 });
 </script>
-
-
-<script src="https://cdn.knightlab.com/libs/juxtapose/latest/js/juxtapose.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script>
 </body>
 </html>
