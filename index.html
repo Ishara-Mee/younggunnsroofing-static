@@ -1127,22 +1127,25 @@ document.getElementById('mobile-play-btn').addEventListener('click', function(e)
 <script>
 document.addEventListener("DOMContentLoaded", function () {
 
-    var playBtn = document.getElementById("mobile-play-btn");
+    var btn = document.getElementById("mobile-play-btn");
     var video = document.getElementById("mobile-video");
+    var image = document.querySelector(".video-image");
 
-    playBtn.addEventListener("click", function(e) {
-        e.preventDefault();
+    if(btn){
+        btn.addEventListener("click", function(e){
+            e.preventDefault();
 
-        // hide image and play button
-        playBtn.style.display = "none";
-        document.querySelector(".video-image").style.display = "none";
+            // hide image and play button
+            btn.style.display = "none";
+            image.style.display = "none";
 
-        // show video
-        video.style.display = "block";
+            // show video
+            video.style.display = "block";
 
-        // play video
-        video.play();
-    });
+            // play video
+            video.play();
+        });
+    }
 
 });
 </script>
