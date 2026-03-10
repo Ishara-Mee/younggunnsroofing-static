@@ -343,7 +343,7 @@
 <!-- Hero Video Section -->
 <div class="video-box style-three">
     <figure class="video-image">
-        <img class="transition-500ms" src="images/resource/younggunns-roofing-home-hero-video.jpg" alt="">
+        <img class="transition-500ms" src="images/resource/younggunns-roofing-home-hero-video.jpg" alt="Young Gunns Roofing video thumbnail" loading="eager" decoding="sync" width="800" height="450" style="-webkit-transform:translateZ(0); transform:translateZ(0);">
     </figure>
 
     <a href="https://aog-cms-videos.s3.ap-southeast-2.amazonaws.com/young-gunns-video/YoungGunnsShowcaseV21.mp4" 
@@ -357,7 +357,8 @@
 <!-- Hero Video Lightbox Modal -->
 <div id="hero-video-modal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.92); z-index:99999; align-items:center; justify-content:center;">
     <button id="hero-video-close" style="position:absolute; top:15px; right:18px; background:none; border:none; color:#fff; font-size:36px; line-height:1; cursor:pointer; z-index:100000;">&times;</button>
-    <video id="hero-video-player" controls playsinline webkit-playsinline
+    <video id="hero-video-player" controls playsinline webkit-playsinline preload="none"
+           poster="images/resource/younggunns-roofing-home-hero-video.jpg"
            style="width:90vw; max-width:860px; max-height:80vh; outline:none; background:#000;">
     </video>
 </div>
