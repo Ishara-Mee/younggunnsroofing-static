@@ -359,6 +359,7 @@
     <button id="hero-video-close" style="position:absolute; top:15px; right:18px; background:none; border:none; color:#fff; font-size:36px; line-height:1; cursor:pointer; z-index:100000;">&times;</button>
     <video id="hero-video-player" controls playsinline webkit-playsinline
            style="width:90vw; max-width:860px; max-height:80vh; outline:none; background:#000;">
+        <source src="https://aog-cms-videos.s3.ap-southeast-2.amazonaws.com/young-gunns-video/Young+Gunns+Showcase+V2.mp4" type="video/mp4">
     </video>
 </div>
 						</div>
@@ -980,10 +981,9 @@ document.addEventListener('DOMContentLoaded', function() {
     if (videoPopupLink) {
         videoPopupLink.addEventListener('click', function(e) {
             e.preventDefault();
-            var src = this.getAttribute('href');
-            document.getElementById('hero-video-modal').style.display = 'flex';
             var vid = document.getElementById('hero-video-player');
-            vid.src = src;
+            document.getElementById('hero-video-modal').style.display = 'flex';
+            vid.load();
             vid.play().catch(function(){});
         });
     }
@@ -991,13 +991,13 @@ document.addEventListener('DOMContentLoaded', function() {
     if (heroModal) {
         document.getElementById('hero-video-close').addEventListener('click', function() {
             var vid = document.getElementById('hero-video-player');
-            vid.pause(); vid.src = '';
+            vid.pause(); vid.currentTime = 0;
             heroModal.style.display = 'none';
         });
         heroModal.addEventListener('click', function(e) {
             if (e.target === heroModal) {
                 var vid = document.getElementById('hero-video-player');
-                vid.pause(); vid.src = '';
+                vid.pause(); vid.currentTime = 0;
                 heroModal.style.display = 'none';
             }
         });
