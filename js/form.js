@@ -104,7 +104,7 @@
                 this.emailjsConfig.templateId,
                 {
                     to_name: "Young Gunns Roofing",
-                    to_email: "younggunnsroofing@gmail.com",
+                    to_email: "fronted001.binarywise@gmail.com",
                     username: formData.username,
                     email: formData.email,
                     phone: formData.phone,
