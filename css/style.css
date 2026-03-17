@@ -201,6 +201,7 @@
 .main-slider .play-box:hover{
 	color:var(--white-color);
 	background-color:var(--main-color);
+	
 }
 
 @-webkit-keyframes ripple {
