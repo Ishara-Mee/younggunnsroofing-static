@@ -11505,3 +11505,15 @@
 }
 
 }
+
+/* Hide any star icon inside counter */
+.counter-block .star-icon,
+.counter-block i.icon-star {
+    display: none !important;
+}
+
+/* Or hide pseudo-elements */
+.counter-block::before,
+.counter-block::after {
+    content: none !important;
+}
