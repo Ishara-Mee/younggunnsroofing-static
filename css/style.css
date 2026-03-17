@@ -11486,3 +11486,21 @@
     border-radius: 5px;
     color: #fff; /* ensure text color is visible */
 }
+@media (max-width: 767px){
+
+.service-block-six .inner-box{
+    display:flex;
+    flex-direction:column;
+}
+
+.service-block-six .image{
+    order:1;
+    margin-bottom:20px;
+}
+
+.service-block-six .content-box{
+    order:2;
+    margin-bottom:20px;
+}
+
+}
