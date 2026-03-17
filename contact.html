@@ -491,29 +491,8 @@
 
 <!--[if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script><![endif]-->
 <!--[if lt IE 9]><script src="js/respond.js"></script><![endif]-->
-<script>
-const input = document.getElementById('attachments');
-const fileList = document.getElementById('file-list');
-const storedFiles = new DataTransfer();
 
-input.addEventListener('change', () => {
-    // Add new files to storedFiles
-    for (const file of input.files) {
-        storedFiles.items.add(file);
-    }
-    // Update the input to include all files
-    input.files = storedFiles.files;
-
-    // Show preview
-    fileList.innerHTML = '';
-    Array.from(storedFiles.files).forEach((file, index) => {
-        const li = document.createElement('li');
-        li.textContent = file.name;
-        fileList.appendChild(li);
-    });
-});
-</script>
-<script src="assets/js/form.js"></script>
+<script src="js/form.js"></script>
    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js"></script>
 </body>
