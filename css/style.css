@@ -11517,6 +11517,3 @@
 .counter-block::after {
     content: none !important;
 }
-.copyright {
-  text-align: center;
-}
