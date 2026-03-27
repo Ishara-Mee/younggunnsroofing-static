@@ -9,9 +9,9 @@
         messages: $('<p class="form-messages mb-0 mt-3"></p>'),
 
         emailjsConfig: {
-            serviceId: 'service_ypxzbva',
+            serviceId: 'service_s5jeapj',
             templateId: 'template_538mfhj',
-            publicKey: 'KeeDIZDTSrheB0Ymz'
+            publicKey: 's8hcsJ-gypdNhGTOI'
         },
 
         init: function () {
@@ -103,7 +103,7 @@
                 this.emailjsConfig.serviceId,
                 this.emailjsConfig.templateId,
                 {
-                    to_name: "Young Gunns Roofing",
+                    to_name: "PureShine",
                     to_email: "iumeegahawela@gmail.com",
                     username: formData.username,
                     email: formData.email,
